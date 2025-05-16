@@ -1,0 +1,149 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="checkout-page">
+    <h1>Checkout</h1>
+    
+    <div class="checkout-steps">
+        <div class="step active" id="shipping-step">
+            <span>1</span>
+            <p>Shipping</p>
+        </div>
+        <div class="step" id="billing-step">
+            <span>2</span>
+            <p>Billing</p>
+        </div>
+        <div class="step" id="payment-step">
+            <span>3</span>
+            <p>Payment</p>
+        </div>
+    </div>
+    
+    <form method="post" id="checkout-form">
+        {% csrf_token %}
+        
+        <!-- Shipping Section -->
+        <div class="checkout-section" id="shipping-section">
+            <h2>Shipping Information</h2>
+            <div class="form-group">
+                <label for="shipping_name">Full Name</label>
+                <input type="text" class="form-control" id="shipping_name" name="shipping_name" required>
+            </div>
+            <div class="form-group">
+                <label for="shipping_address">Address</label>
+                <textarea class="form-control" id="shipping_address" name="shipping_address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="shipping_city">City</label>
+                <input type="text" class="form-control" id="shipping_city" name="shipping_city" required>
+            </div>
+            <div class="form-group">
+                <label for="shipping_zip">ZIP Code</label>
+                <input type="text" class="form-control" id="shipping_zip" name="shipping_zip" required>
+            </div>
+            <div class="form-group">
+                <label for="shipping_phone">Phone Number</label>
+                <input type="tel" class="form-control" id="shipping_phone" name="shipping_phone" required>
+            </div>
+            <button type="button" class="btn btn-primary next-step" data-next="billing">Continue to Billing</button>
+        </div>
+        
+        <!-- Billing Section -->
+        <div class="checkout-section hidden" id="billing-section">
+            <h2>Billing Information</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="same_as_shipping" name="same_as_shipping">
+                <label class="form-check-label" for="same_as_shipping">Same as shipping address</label>
+            </div>
+            
+            <div id="billing-fields">
+                <div class="form-group">
+                    <label for="billing_name">Full Name</label>
+                    <input type="text" class="form-control" id="billing_name" name="billing_name">
+                </div>
+                <div class="form-group">
+                    <label for="billing_address">Address</label>
+                    <textarea class="form-control" id="billing_address" name="billing_address" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="billing_city">City</label>
+                    <input type="text" class="form-control" id="billing_city" name="billing_city">
+                </div>
+                <div class="form-group">
+                    <label for="billing_zip">ZIP Code</label>
+                    <input type="text" class="form-control" id="billing_zip" name="billing_zip">
+                </div>
+            </div>
+            
+            <div class="coupon-section">
+                <h3>Apply Coupon</h3>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="coupon_code" name="coupon_code" placeholder="Coupon Code">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="apply-coupon">Apply</button>
+                    </div>
+                </div>
+                <div id="coupon-message"></div>
+            </div>
+            
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <p>Subtotal: ₹{{ subtotal }}</p>
+                <p>Shipping: ₹{{ shipping }}</p>
+                <p>Discount: ₹{{ discount }}</p>
+                <p class="total">Total: ₹{{ total }}</p>
+            </div>
+            
+            <button type="button" class="btn btn-secondary prev-step" data-prev="shipping">Back</button>
+            <button type="button" class="btn btn-primary next-step" data-next="payment">Continue to Payment</button>
+        </div>
+        
+        <!-- Payment Section -->
+        <div class="checkout-section hidden" id="payment-section">
+            <h2>Payment Method</h2>
+            <div class="payment-options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment_method" id="credit_card" value="credit_card" checked>
+                    <label class="form-check-label" for="credit_card">Credit/Debit Card</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment_method" id="net_banking" value="net_banking">
+                    <label class="form-check-label" for="net_banking">Net Banking</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment_method" id="upi" value="upi">
+                    <label class="form-check-label" for="upi">UPI</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment_method" id="cod" value="cod">
+                    <label class="form-check-label" for="cod">Cash on Delivery</label>
+                </div>
+            </div>
+            
+            <div id="credit-card-fields">
+                <div class="form-group">
+                    <label for="card_number">Card Number</label>
+                    <input type="text" class="form-control" id="card_number" name="card_number" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="form-group">
+                    <label for="card_name">Name on Card</label>
+                    <input type="text" class="form-control" id="card_name" name="card_name">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="card_expiry">Expiry Date</label>
+                        <input type="text" class="form-control" id="card_expiry" name="card_expiry" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="card_cvv">CVV</label>
+                        <input type="text" class="form-control" id="card_cvv" name="card_cvv" placeholder="123">
+                    </div>
+                </div>
+            </div>
+            
+            <button type="button" class="btn btn-secondary prev-step" data-prev="billing">Back</button>
+            <button type="submit" class="btn btn-primary">Place Order</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

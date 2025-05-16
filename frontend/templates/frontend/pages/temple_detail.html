@@ -1,0 +1,169 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="temple-detail">
+    <div class="temple-header">
+        <h1>{{ temple.name }}</h1>
+        <p class="location">{{ temple.location.name }}</p>
+    </div>
+    
+    <div class="temple-tabs">
+        <ul class="nav nav-tabs" id="templeTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="virtual-tab" data-toggle="tab" href="#virtual" role="tab" aria-controls="virtual" aria-selected="false">Virtual Darshan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="services-tab" data-toggle="tab" href="#services" role="tab" aria-controls="services" aria-selected="false">Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="location" aria-selected="false">Location</a>
+            </li>
+        </ul>
+        
+        <div class="tab-content" id="templeTabsContent">
+            <!-- Overview Tab -->
+            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                <div class="temple-gallery">
+                    {% for image in temple.images.all %}
+                    <img src="{{ image.image.url }}" alt="{{ temple.name }}" class="img-fluid">
+                    {% endfor %}
+                </div>
+                <div class="temple-description">
+                    <h3>About This Temple</h3>
+                    <p>{{ temple.description }}</p>
+                    
+                    <h3>Deities</h3>
+                    <ul>
+                        {% for deity in temple.deities.all %}
+                        <li>{{ deity.name }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <h3>Architecture</h3>
+                    <p>{{ temple.architecture.name }}</p>
+                </div>
+            </div>
+            
+            <!-- Virtual Darshan Tab -->
+            <div class="tab-pane fade" id="virtual" role="tabpanel" aria-labelledby="virtual-tab">
+                <div class="virtual-darshan">
+                    <iframe width="100%" height="500" src="{{ temple.virtual_tour_url }}" frameborder="0" allowfullscreen></iframe>
+                    <div class="donation-options">
+                        <h3>Make a Donation</h3>
+                        <form method="post" action="{% url 'temple_donation' temple.id %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="amount">Amount</label>
+                                <input type="number" class="form-control" id="amount" name="amount" min="1" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Donate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Services Tab -->
+            <div class="tab-pane fade" id="services" role="tabpanel" aria-labelledby="services-tab">
+                <div class="service-options">
+                    <h3>Book Pooja</h3>
+                    <form method="post" action="{% url 'book_pooja' temple.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="pooja_type">Pooja Type</label>
+                            <select class="form-control" id="pooja_type" name="pooja_type" required>
+                                {% for pooja in temple.poojas.all %}
+                                <option value="{{ pooja.id }}">{{ pooja.name }} (₹{{ pooja.price }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pooja_date">Date</label>
+                            <input type="date" class="form-control" id="pooja_date" name="pooja_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pooja_time">Time Slot</label>
+                            <select class="form-control" id="pooja_time" name="pooja_time" required>
+                                <option value="06:00-07:00">06:00 AM - 07:00 AM</option>
+                                <option value="08:00-09:00">08:00 AM - 09:00 AM</option>
+                                <option value="10:00-11:00">10:00 AM - 11:00 AM</option>
+                                <option value="12:00-13:00">12:00 PM - 01:00 PM</option>
+                                <option value="16:00-17:00">04:00 PM - 05:00 PM</option>
+                                <option value="18:00-19:00">06:00 PM - 07:00 PM</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Book Now</button>
+                    </form>
+                    
+                    <h3 class="mt-4">Book Accommodation</h3>
+                    <form method="post" action="{% url 'book_room' temple.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="room_type">Room Type</label>
+                            <select class="form-control" id="room_type" name="room_type" required>
+                                {% for room in temple.rooms.all %}
+                                <option value="{{ room.id }}">{{ room.type }} (₹{{ room.price }}/night)</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="check_in">Check-in Date</label>
+                            <input type="date" class="form-control" id="check_in" name="check_in" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="check_out">Check-out Date</label>
+                            <input type="date" class="form-control" id="check_out" name="check_out" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Book Now</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- History Tab -->
+            <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                <div class="timeline">
+                    <h3>Temple History</h3>
+                    <div class="timeline-content">
+                        {{ temple.history|safe }}
+                    </div>
+                    
+                    <h3 class="mt-4">Upcoming Events</h3>
+                    <div class="events-list">
+                        {% for event in temple.events.all %}
+                        <div class="event-card">
+                            <h4>{{ event.name }}</h4>
+                            <p>{{ event.date }} - {{ event.description }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Location Tab -->
+            <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+                <div class="temple-map">
+                    <iframe width="100%" height="450" style="border:0" loading="lazy" allowfullscreen 
+                        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q={{ temple.location.latitude }},{{ temple.location.longitude }}">
+                    </iframe>
+                    <div class="distance-calculator mt-4">
+                        <h3>Distance Calculator</h3>
+                        <form id="distanceForm">
+                            <div class="form-group">
+                                <label for="origin">Your Location</label>
+                                <input type="text" class="form-control" id="origin" placeholder="Enter your address" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate Distance</button>
+                        </form>
+                        <div id="distanceResult" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="pooja-booking">
+    <h1>Book Pooja</h1>
+    
+    <div class="booking-steps">
+        <div class="step active" data-step="1">
+            <span>1</span>
+            <p>Select Pooja</p>
+        </div>
+        <div class="step" data-step="2">
+            <span>2</span>
+            <p>Select Date & Time</p>
+        </div>
+        <div class="step" data-step="3">
+            <span>3</span>
+            <p>Checkout</p>
+        </div>
+    </div>
+    
+    <div class="booking-content">
+        <!-- Step 1: Select Pooja -->
+        <div class="booking-step" id="step-1">
+            <h2>Select a Pooja</h2>
+            <div class="pooja-options">
+                {% for pooja in poojas %}
+                <div class="pooja-card" data-pooja-id="{{ pooja.id }}">
+                    <h3>{{ pooja.name }}</h3>
+                    <p>{{ pooja.description }}</p>
+                    <div class="pooja-price">₹{{ pooja.price }}</div>
+                    <button class="btn btn-primary select-pooja">Select</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Step 2: Select Date & Time -->
+        <div class="booking-step hidden" id="step-2">
+            <h2>Select Date & Time</h2>
+            <form id="datetimeForm">
+                <div class="form-group">
+                    <label for="pooja_date">Date</label>
+                    <input type="date" class="form-control" id="pooja_date" name="pooja_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="pooja_time">Time Slot</label>
+                    <select class="form-control" id="pooja_time" name="pooja_time" required>
+                        {% for slot in time_slots %}
+                        <option value="{{ slot }}">{{ slot }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary next-step">Continue</button>
+            </form>
+        </div>
+        
+        <!-- Step 3: Checkout -->
+        <div class="booking-step hidden" id="step-3">
+            <h2>Checkout</h2>
+            <div class="booking-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-item">
+                    <span>Pooja:</span>
+                    <span id="summary-pooja"></span>
+                </div>
+                <div class="summary-item">
+                    <span>Date:</span>
+                    <span id="summary-date"></span>
+                </div>
+                <div class="summary-item">
+                    <span>Time:</span>
+                    <span id="summary-time"></span>
+                </div>
+                <div class="summary-item total">
+                    <span>Total:</span>
+                    <span id="summary-price"></span>
+                </div>
+            </div>
+            
+            <form id="checkoutForm" method="post" action="{% url 'confirm_pooja_booking' %}">
+                {% csrf_token %}
+                <input type="hidden" id="pooja_id" name="pooja_id">
+                <input type="hidden" id="booking_date" name="booking_date">
+                <input type="hidden" id="booking_time" name="booking_time">
+                
+                <div class="form-group">
+                    <label for="full_name">Full Name</label>
+                    <input type="text" class="form-control" id="full_name" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+// JavaScript for handling the booking steps
+</script>
+{% endblock %}

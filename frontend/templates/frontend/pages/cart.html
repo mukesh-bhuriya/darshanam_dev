@@ -1,0 +1,45 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="cart-page">
+    <h1>Your Cart</h1>
+    
+    {% if cart_items %}
+    <div class="cart-items">
+        {% for item in cart_items %}
+        <div class="cart-item">
+            <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}">
+            <div class="item-details">
+                <h3>{{ item.product.name }}</h3>
+                <p>₹{{ item.product.price|floatformat:2 }}</p>
+                
+                <form method="post" action="{% url 'update_cart' item.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="{{ item.quantity }}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger">Remove</a>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="cart-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-details">
+            <p>Subtotal: ₹{{ subtotal|floatformat:2 }}</p>
+            <p>Shipping: ₹{{ shipping|floatformat:2 }}</p>
+            <p>Total: ₹{{ total|floatformat:2 }}</p>
+        </div>
+        <a href="{% url 'checkout' %}" class="btn btn-primary">Proceed to Checkout</a>
+    </div>
+    {% else %}
+    <div class="empty-cart">        <p>Your cart is empty</p>
+        <a href="{% url 'divine_store' %}" class="btn btn-primary">Continue Shopping</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

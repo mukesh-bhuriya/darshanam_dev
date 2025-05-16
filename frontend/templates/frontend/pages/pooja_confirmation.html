@@ -1,0 +1,46 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="pooja-confirmation">
+    <div class="confirmation-card">
+        <div class="confirmation-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Booking Confirmed!</h1>
+        <p>Your pooja booking has been successfully confirmed.</p>
+        
+        <div class="confirmation-details">
+            <h3>Booking Details</h3>
+            <div class="detail-item">
+                <span>Order ID:</span>
+                <span>{{ order_id }}</span>
+            </div>
+            <div class="detail-item">
+                <span>Pooja:</span>
+                <span>{{ pooja.name }}</span>
+            </div>
+            <div class="detail-item">
+                <span>Date:</span>
+                <span>{{ booking_date }}</span>
+            </div>
+            <div class="detail-item">
+                <span>Time:</span>
+                <span>{{ booking_time }}</span>
+            </div>
+            <div class="detail-item">
+                <span>Temple:</span>
+                <span>{{ temple.name }}</span>
+            </div>
+            <div class="detail-item total">
+                <span>Amount Paid:</span>
+                <span>₹{{ pooja.price }}</span>
+            </div>
+        </div>
+        
+        <div class="confirmation-actions">
+            <a href="{% url 'dashboard' %}" class="btn btn-primary">Back to Dashboard</a>
+            <a href="{% url 'print_booking' order_id %}" class="btn btn-secondary">Print Receipt</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

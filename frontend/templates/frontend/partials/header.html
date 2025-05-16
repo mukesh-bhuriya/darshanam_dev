@@ -1,0 +1,29 @@
+<header>
+    <nav>
+        <div class="logo">
+            <a href="/">Darshanam</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/volunteer">Volunteer</a></li>
+        </ul>
+        <div class="language-selector">
+            <form action="{% url 'set_language' %}" method="post">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.path }}">
+                <select name="language" onchange="this.form.submit()">
+                    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                    <option value="hi" {% if LANGUAGE_CODE == 'hi' %}selected{% endif %}>हिंदी</option>
+                    <option value="ta" {% if LANGUAGE_CODE == 'ta' %}selected{% endif %}>தமிழ்</option>
+                    <option value="te" {% if LANGUAGE_CODE == 'te' %}selected{% endif %}>తెలుగు</option>
+                    <option value="kn" {% if LANGUAGE_CODE == 'kn' %}selected{% endif %}>ಕನ್ನಡ</option>
+                    <option value="ml" {% if LANGUAGE_CODE == 'ml' %}selected{% endif %}>മലയാളം</option>
+                    <option value="gu" {% if LANGUAGE_CODE == 'gu' %}selected{% endif %}>ગુજરાતી</option>
+                    <option value="as" {% if LANGUAGE_CODE == 'as' %}selected{% endif %}>অসমীয়া</option>
+                    <option value="mr" {% if LANGUAGE_CODE == 'mr' %}selected{% endif %}>मराठी</option>
+                </select>
+            </form>
+        </div>
+    </nav>
+</header>

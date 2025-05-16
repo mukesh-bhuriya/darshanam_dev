@@ -1,0 +1,64 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="temple-listing">
+    <h2>Temple Directory</h2>
+    
+    <div class="filters">
+        <form method="get">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <select class="form-control" id="location" name="location">
+                            <option value="">All Locations</option>
+                            {% for loc in locations %}
+                                <option value="{{ loc.id }}" {% if selected_location == loc.id %}selected{% endif %}>{{ loc.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="deity">Deity</label>
+                        <select class="form-control" id="deity" name="deity">
+                            <option value="">All Deities</option>
+                            {% for d in deities %}
+                                <option value="{{ d.id }}" {% if selected_deity == d.id %}selected{% endif %}>{{ d.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="architecture">Architecture</label>
+                        <select class="form-control" id="architecture" name="architecture">
+                            <option value="">All Styles</option>
+                            {% for arch in architectures %}
+                                <option value="{{ arch.id }}" {% if selected_architecture == arch.id %}selected{% endif %}>{{ arch.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary mt-4">Filter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="temple-grid mt-4">
+        {% for temple in temples %}
+        <div class="temple-card">
+            <img src="{{ temple.thumbnail.url }}" alt="{{ temple.name }}" class="img-fluid">
+            <div class="temple-info">
+                <h3>{{ temple.name }}</h3>
+                <p>{{ temple.location.name }}</p>
+                <p>Primary Deity: {{ temple.primary_deity.name }}</p>
+                <a href="{% url 'temple_detail' temple.id %}" class="btn btn-secondary">View Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

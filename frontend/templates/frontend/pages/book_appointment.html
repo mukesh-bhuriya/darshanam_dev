@@ -1,0 +1,122 @@
+{% extends 'frontend/dashboard.html' %}
+{% block dashboard_content %}
+<div class="appointment-booking">
+    <h1>Book Astrology Consultation</h1>
+    
+    <div class="astrologer-selection">
+        <h2>Select Astrologer</h2>
+        <div class="astrologer-cards">
+            {% if astrologers %}
+            {% for astrologer in astrologers %}
+            <div class="astrologer-card" data-id="{{ astrologer.id }}">
+                {% if astrologer.profile_image %}
+                <img src="{{ astrologer.profile_image.url }}" alt="{{ astrologer.name }}">
+                {% endif %}
+                <h3>{{ astrologer.name }}</h3>
+                <p>{{ astrologer.expertise }}</p>
+                <div class="rating">
+                    {% for i in "12345" %}
+                    <span class="{% if forloop.counter <= astrologer.rating %}filled{% endif %}">★</span>
+                    {% endfor %}
+                </div>
+                <button class="btn btn-primary select-astrologer">Select</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="appointment-form">
+        <h2>Appointment Details</h2>
+        <form method="post" id="appointment-form">
+            {% csrf_token %}
+            <input type="hidden" id="astrologer_id" name="astrologer_id">
+            
+            <div class="form-group">
+                <label for="appointment_date">Date</label>
+                <input type="date" class="form-control" id="appointment_date" name="appointment_date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="duration">Duration (minutes)</label>
+                <input type="number" class="form-control" id="duration" name="duration" min="1" max="60" value="15" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Estimated Cost</label>
+                <div id="cost-display" class="cost-display">₹0</div>
+                <input type="hidden" id="estimated_cost" name="estimated_cost">
+            </div>
+            
+            <div class="form-group">
+                <label for="appointment_time">Time</label>
+                <select class="form-control" id="appointment_time" name="appointment_time" required>
+                    <option value="">Select Time Slot</option>
+                    <option value="09:00-10:00">09:00 AM - 10:00 AM</option>
+                    <option value="11:00-12:00">11:00 AM - 12:00 PM</option>
+                    <option value="14:00-15:00">02:00 PM - 03:00 PM</option>
+                    <option value="16:00-17:00">04:00 PM - 05:00 PM</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="consultation_type">Consultation Type</label>
+                <select class="form-control" id="consultation_type" name="consultation_type" required>
+                    <option value="call">Phone Call</option>
+                    <option value="video">Video Call</option>
+                    <option value="chat">Live Chat</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="temple">Related Temple (Optional)</label>
+                <select class="form-control" id="temple" name="temple">
+                    <option value="">Select Temple (Optional)</option>
+                    <option value="tirupati">Tirupati Balaji, Andhra Pradesh</option>
+                    <option value="kedarnath">Kedarnath Temple, Uttarakhand</option>
+                    <option value="golden">Golden Temple, Amritsar</option>
+                    <option value="meenakshi">Meenakshi Temple, Madurai</option>
+                    <option value="konark">Konark Sun Temple, Odisha</option>
+                    <option value="shirdi">Shirdi Sai Baba Temple, Maharashtra</option>
+                    <option value="vaishno">Vaishno Devi Temple, Jammu</option>
+                    <option value="somnath">Somnath Temple, Gujarat</option>
+                    <option value="rameshwaram">Rameshwaram Temple, Tamil Nadu</option>
+                    <option value="badrinath">Badrinath Temple, Uttarakhand</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="concern">Your Concern</label>
+                <textarea class="form-control" id="concern" name="concern" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    let selectedAstrologer = null;
+    
+    $('.select-astrologer').click(function() {
+        selectedAstrologer = $(this).closest('.astrologer-card').data('id');
+        calculateCost();
+    });
+    
+    $('#duration').on('input', calculateCost);
+    
+    function calculateCost() {
+        if (!selectedAstrologer) return;
+        
+        const duration = parseInt($('#duration').val()) || 0;
+        const rate = $('#consultation_type').val() === 'chat' ? 10 : 15;
+        
+        const cost = duration * rate;
+        $('#cost-display').text('₹' + cost);
+        $('#estimated_cost').val(cost);
+    }
+});
+</script>
+{% endblock %}

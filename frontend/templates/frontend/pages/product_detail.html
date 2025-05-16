@@ -1,0 +1,57 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="product-detail">
+    <div class="product-header">
+        <h1>{{ product.name }}</h1>
+        <p class="category">{{ product.category.name }}</p>
+    </div>
+    
+    <div class="product-content">
+        <div class="product-gallery">
+            {% for image in product.images.all %}
+            <img src="{{ image.image.url }}" alt="{{ product.name }}" class="img-fluid">
+            {% endfor %}
+        </div>
+        
+        <div class="product-info">
+            <div class="price-section">
+                <span class="current-price">₹{{ product.price|floatformat:2 }}</span>
+                {% if product.original_price %}
+                <span class="original-price">₹{{ product.original_price|floatformat:2 }}</span>
+                {% endif %}
+            </div>
+            
+            <div class="description-section">
+                <h3>Description</h3>
+                <p>{{ product.description }}</p>
+            </div>
+            
+            <div class="add-to-cart">
+                <form method="post" action="{% url 'add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="related-products">
+        <h2>Related Products</h2>
+        <div class="related-items">
+            {% for related in related_products %}
+            <div class="related-item">
+                <img src="{{ related.images.first.image.url }}" alt="{{ related.name }}">
+                <h3>{{ related.name }}</h3>
+                <p>₹{{ related.price }}</p>
+                <a href="{% url 'product_detail' related.slug %}" class="btn btn-primary">View</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="store-home">
+    <div class="store-banner">
+        <h1>Divine Store</h1>
+        <p>Spiritual products for your journey</p>
+    </div>
+    
+    <div class="offers-section">
+        <h2>Special Offers</h2>
+        <div class="offer-cards">
+            {% for offer in offers %}
+            <div class="offer-card">
+                <img src="{{ offer.image.url }}" alt="{{ offer.name }}">
+                <h3>{{ offer.name }}</h3>
+                <p>{{ offer.description }}</p>
+                <a href="{% url 'offer_detail' offer.id %}" class="btn btn-primary">View Offer</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="categories-section">
+        <h2>Categories</h2>
+        <div class="category-cards">
+            {% for category in categories %}
+            <div class="category-card">
+                <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                <h3>{{ category.name }}</h3>
+                <a href="{% url 'category_products' category.slug %}" class="btn btn-primary">Browse</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

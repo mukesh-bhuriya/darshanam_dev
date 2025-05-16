@@ -1,0 +1,27 @@
+{% extends 'frontend/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Login</h1>
+    
+    <section class="login-form-section">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username/Email</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <a href="{% url 'password_reset' %}" class="btn btn-link">Forgot Password?</a>
+        </form>
+    </section>
+    
+    <section class="register-section">
+        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    </section>
+</div>
+{% endblock %}

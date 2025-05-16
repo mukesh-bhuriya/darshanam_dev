@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrology Services - Darshanam</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Astrology Services Header -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">Astrology Services</h1>
+            <p class="text-gray-600 mb-6">Get personalized astrological guidance from our expert astrologers.</p>
+            
+            <!-- Services Navigation -->
+            <div class="flex flex-wrap gap-4 mb-6">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded service-tab active" data-service="horoscope">Horoscope</button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded service-tab" data-service="compatibility">Compatibility</button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded service-tab" data-service="astrologers">Consult Astrologer</button>
+            </div>
+            
+            <!-- Horoscope Service -->
+            <div id="horoscope-service" class="service-content">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Horoscope Analysis</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Birth Details</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
+                                <input type="date" class="border rounded w-full py-2 px-3 text-gray-700">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Time of Birth</label>
+                                <input type="time" class="border rounded w-full py-2 px-3 text-gray-700">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Place of Birth</label>
+                                <input type="text" placeholder="City, Country" class="border rounded w-full py-2 px-3 text-gray-700">
+                            </div>
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Generate Horoscope</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Your Horoscope</h3>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="text-gray-600">Enter your birth details to generate a personalized horoscope analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Compatibility Service -->
+            <div id="compatibility-service" class="service-content hidden">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Compatibility Analysis</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Your Details</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
+                                <input type="date" class="border rounded w-full py-2 px-3 text-gray-700">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+                                <select class="border rounded w-full py-2 px-3 text-gray-700">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Partner's Details</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
+                                <input type="date" class="border rounded w-full py-2 px-3 text-gray-700">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+                                <select class="border rounded w-full py-2 px-3 text-gray-700">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Check Compatibility</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Astrologers Service -->
+            <div id="astrologers-service" class="service-content hidden">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Consult Our Astrologers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Astrologer Profile 1 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <img src="./assets/images/astrologer1.jpg" alt="Astrologer" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-1">Pandit Ravi Shankar</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400">★★★★★</span>
+                                <span class="text-gray-600 text-sm ml-2">(245 reviews)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Vedic Astrology Specialist, 15+ years experience</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">₹500/session</span>
+                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded text-sm book-astrologer">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Astrologer Profile 2 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <img src="./assets/images/astrologer2.jpg" alt="Astrologer" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-1">Jyotishi Priya</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400">★★★★☆</span>
+                                <span class="text-gray-600 text-sm ml-2">(189 reviews)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Relationship Compatibility Expert</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">₹400/session</span>
+                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded text-sm book-astrologer">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Astrologer Profile 3 -->
+                    <div class="border border-gray-200 rounded-lg overflow-hidden">
+                        <img src="./assets/images/astrologer3.jpg" alt="Astrologer" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-semibold text-lg mb-1">Acharya Vikram</h3>
+                            <div class="flex items-center mb-2">
+                                <span class="text-yellow-400">★★★★★</span>
+                                <span class="text-gray-600 text-sm ml-2">(312 reviews)</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-2">Career & Financial Astrology</p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold">₹600/session</span>
+                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded text-sm book-astrologer">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Consultation Options -->
+                <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Consultation Options</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <h4 class="font-medium">Chat Consultation</h4>
+                            <p class="text-gray-600 mb-4">₹300/30 mins</p>
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Select</button>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <h4 class="font-medium">Voice Call</h4>
+                            <p class="text-gray-600 mb-4">₹500/30 mins</p>
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Select</button>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-4 text-center">
+                            <h4 class="font-medium">Video Call</h4>
+                            <p class="text-gray-600 mb-4">₹700/30 mins</p>
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Service tab switching
+            $('.service-tab').click(function() {
+                $('.service-tab').removeClass('active');
+                $(this).addClass('active');
+                
+                $('.service-content').addClass('hidden');
+                const service = $(this).data('service');
+                $(`#${service}-service`).removeClass('hidden');
+            });
+            
+            // Astrologer booking
+            $('.book-astrologer').click(function() {
+                // TODO: Implement booking functionality
+                alert('Booking functionality will be implemented soon!');
+            });
+        });
+    </script>
+</body>
+</html>

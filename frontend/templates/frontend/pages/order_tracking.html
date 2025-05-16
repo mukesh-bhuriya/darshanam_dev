@@ -1,0 +1,64 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="order-tracking">
+    <h1>Order #{{ order.id }}</h1>
+    <p class="order-date">Placed on {{ order.created_at|date:"F j, Y" }}</p>
+    
+    <div class="order-status">
+        <div class="status-step {% if order.status >= 1 %}active{% endif %}">
+            <span>1</span>
+            <p>Order Placed</p>
+        </div>
+        <div class="status-step {% if order.status >= 2 %}active{% endif %}">
+            <span>2</span>
+            <p>Processing</p>
+        </div>
+        <div class="status-step {% if order.status >= 3 %}active{% endif %}">
+            <span>3</span>
+            <p>Shipped</p>
+        </div>
+        <div class="status-step {% if order.status >= 4 %}active{% endif %}">
+            <span>4</span>
+            <p>Delivered</p>
+        </div>
+    </div>
+    
+    <div class="order-details">
+        <h2>Order Details</h2>
+        <div class="order-items">
+            {% for item in order.items.all %}
+            <div class="order-item">
+                <img src="{{ item.product.images.first.image.url }}" alt="{{ item.product.name }}">
+                <div class="item-info">
+                    <h3>{{ item.product.name }}</h3>
+                    <p>Quantity: {{ item.quantity }}</p>
+                    <p>Price: ₹{{ item.price }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <p>Subtotal: ₹{{ order.subtotal }}</p>
+            <p>Shipping: ₹{{ order.shipping_cost }}</p>
+            <p>Discount: ₹{{ order.discount }}</p>
+            <p class="total">Total: ₹{{ order.total }}</p>
+        </div>
+    </div>
+    
+    <div class="shipping-info">
+        <h2>Shipping Information</h2>
+        <p>{{ order.shipping_name }}</p>
+        <p>{{ order.shipping_address }}</p>
+        <p>{{ order.shipping_city }}, {{ order.shipping_zip }}</p>
+        <p>Phone: {{ order.shipping_phone }}</p>
+    </div>
+    
+    <div class="tracking-actions">
+        <a href="{% url 'divine_store' %}" class="btn btn-primary">Continue Shopping</a>
+        <a href="{% url 'contact_support' %}" class="btn btn-secondary">Contact Support</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>India Temples and Spirituality</title>
+    <link rel="icon" href="./assets/images/shreeganeshji.png" />
+    <!-- Favicon -->
+    <link href="./assets/image/favicon.svg" rel="shortcut icon" type="image/x-icon" />
+    <link href="./assets/image/favicon.svg" rel="apple-touch-icon" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+
+    <!-- owl Carousel css -->
+    <link rel="stylesheet"
+        href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css" />
+    <!-- Special animation  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Style Css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+
+<body class="bg-[url('./assets/images/borderfirstsection.png')] bg-cover">
+    <!-- <nav class="navbar-expand-lg"> -->
+
+    <div class="container mx-auto px-4">
+        <div class="border-fristsection">
+            <img src="./assets/images/borderfirstsection.png" alt="border-first-section">
+        </div>
+        <div class="website-firstbg">
+            <div class="container-fluid px-0">
+                <div class="flex flex-wrap py-8 items-center justify-between">
+                    <div class="w-full md:w-1/4 lg:w-1/4">
+                        <div class="website-main-logo">
+                            <img src="./assets/images/dadrshanmainlogo.png" alt="darshan website main logo">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 lg:w-1/2">
+                        <div class="website-main-logo justify-content-center">
+                            <h2 class="text-center">In Indian Temples and Spiritually Website</h2>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/4 lg:w-1/4">
+                        <div class="website-main-logo justify-content-end">
+                            <img src="./assets/images/dadrshanmainlogo.png" alt="darshan website main logo">
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <!-- Navbar design start -->
+                <div class="search-container bg-white p-4 rounded-lg shadow-md mb-4">
+    <h3 class="text-xl font-bold mb-3">Search Temples</h3>
+    <div class="flex">
+        <select class="border rounded-l px-4 py-2 w-1/3">
+            <option>By God</option>
+            {% for god in gods %}
+            <option value="{{ god.id }}">{{ god.name }}</option>
+            {% endfor %}
+        </select>
+        <select class="border-t border-b border-r px-4 py-2 w-1/3">
+            <option>By Category</option>
+            {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" placeholder="Location" class="border-t border-b border-r px-4 py-2 w-1/3">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-r">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</div>
+<nav class="flex items-center justify-between flex-wrap bg-nav p-4 mt-3">
+                    <div class="flex items-center flex-shrink-0">
+                        <button class="md:hidden flex items-center px-3 py-2 border rounded text-gray-500 border-gray-500 hover:text-gray-700 hover:border-gray-700">
+                            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <title>Menu</title>
+                                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="w-full block flex-grow md:flex md:items-center md:w-auto" id="navbarSupportedContent">
+                        <ul class="flex flex-col md:flex-row list-none md:ml-auto w-full mb-2">
+                            <li class="md:ml-8">
+                                <a class="inline-block text-gray-700 hover:text-gray-900 px-3 py-2 border-b-2 border-transparent hover:border-gray-300" href="#">Telugu</a>
+                            </li>
+                                <li class="md:ml-8">
+                                <a class="inline-block text-gray-700 hover:text-gray-900 px-3 py-2 border-b-2 border-transparent hover:border-gray-300" href="#">fasting days</a>
+                            </li>
+                            <li class="md:ml-8">
+                                <a class="inline-block text-gray-700 hover:text-gray-900 px-3 py-2 border-b-2 border-transparent hover:border-gray-300" href="#">this week</a>
+                            </li>
+                            <li class="md:ml-8">
+                                <a class="inline-block text-gray-700 hover:text-gray-900 px-3 py-2 border-b-2 border-transparent hover:border-gray-300" href="#">good & progress</a>
+                            </li>
+                            <li class="md:ml-8">
+                                <a class="inline-block text-gray-700 hover:text-gray-900 px-3 py-2 border-b-2 border-transparent hover:border-gray-300" href="#">deekshas</a>
+                            </li>
+                            <li class="md:ml-8">
+                                <a class="inline-block text-gray-700 hover:text-gray-900 px-3 py-2 border-b-2 border-transparent hover:border-gray-300" href="#">festivals</a>
+                            </li>
+                            <li class="md:ml-8 flex items-center">
+                                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" type="submit">LOG-IN</button>
+                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit">REGISTER</button>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Navbar design end-->
+    
+            <!-- Festival Carousel -->
+<div class="festival-carousel owl-carousel owl-theme py-8">
+    {% for festival in festivals %}
+    <div class="item">
+        <div class="festival-card bg-white rounded-lg shadow-md p-4 mx-2">
+            <img src="{{ festival.image_url }}" alt="{{ festival.name }}" class="w-full h-48 object-cover rounded-t-lg">
+            <div class="p-4">
+                <h3 class="text-xl font-bold">{{ festival.name }}</h3>
+                <p class="text-gray-600">{{ festival.date }}</p>
+                <p class="mt-2">{{ festival.description|truncatechars:100 }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Location section design start -->
+            <div class="bg-first-section py-[30px]">
+                <div class="w-full px-4">
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-5/12 md:w-6/12 sm:w-full">
+                            <div class="location-for-site">
+                                <div class="rounded-[14px] h-[270px] w-[260px] shadow-md">
+                                    <img src="./assets/images/shreeganeshji.png" class="w-full max-w-[150px] h-[150px] mx-auto">
+                                    <h3 class="text-2xl uppercase font-bold text-center text-[#500724] mb-[10px]">Daily Muhurat</h3>
+                                    <div class="text-center p-2">
+                                        {% for muhurat in muhurats %}
+                                        <div class="mb-2">
+                                            <p class="font-bold">{{ muhurat.name }}</p>
+                                            <p>{{ muhurat.time }}</p>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4908.151447054534!2d103.8174977758167!3d1.2643742618428675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1be268750ce5%3A0x6369471795110bc1!2sHarbourFront%20Centre!5e1!3m2!1sen!2sin!4v1745300227507!5m2!1sen!2sin"
+                                    width="100%" height="800" style="border-radius:14px;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-2/12 md:w-6/12 sm:w-full">
+                            <div class="image-gallery flex flex-col gap-3">
+                                <div>
+                                    <img src="./assets/images/mapone.png" class="img-fluid mb-3">
+                                </div>
+                                <div>
+                                    <img src="./assets/images/maptwo.png" class="img-fluid mb-3">
+                                </div>
+                                <div>
+                                    <img src="./assets/images/mapone.png" class="img-fluid mb-3">
+                                </div>
+                                <div class="maptwo_imagehide">
+                                    <img src="./assets/images/maptwo.png" class="img-fluid mb-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-5/12 md:w-full sm:w-full">
+                            <div class="bg-astrological bg-white p-6 rounded-lg shadow-md">
+                                <h3>Featured Temples & Events</h3>
+                                <hr>
+                                <div class="services-img">
+                                    <div class="flex items-center mb-4">
+                                        <div>
+                                            <img src="./assets/images/assone.png" class="img-fluid">
+                                        </div>
+                                        <div>
+                                            <h4>Ramanathaswamy Temple (Tamil Nadu)</h4>
+                                            <p class="m-0"> Located in Rameswaram, this is one of the twelve
+                                                Jyotirlingas of Lord Shiva.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="services-img">
+                                    <div class="flex items-center mb-4">
+                                        <div>
+                                            <img src="./assets/images/asstwo.png" class="img-fluid">
+                                        </div>
+                                        <div>
+                                            <h4>Somnath Temple (Gujarat)</h4>
+                                            <p class="m-0"> One of the twelve Jyotirlingas of Lord Shiva, Somnath is
+                                                known as the "Eternal Shrine."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="services-img">
+                                    <div class="flex items-center mb-4">
+                                    <div>
+                                        <img src="./assets/images/assthree.png" class="img-fluid">
+                                    </div>
+                                    <div>
+                                        <h4>Tirupati Balaji Temple (Andhra Pradesh)</h4>
+                                        <p class="m-0"> One of the wealthiest and most visited temples in the world,
+                                        dedicated to Lord Venkateswara (Balaji).</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="flex justify-between">
+                                    {% for temple in featured_temples %}
+                                    <div class="img-gallery-two bg-green-100 p-4 rounded-lg">
+                                        <img src="{{ temple.image_url }}" class="w-full h-auto">
+                                        <h3 class="text-lg font-bold mt-2">{{ temple.name }}</h3>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                
+                                <!-- Testimonials & Community Feed -->
+                                <div class="testimonials-section mt-8 bg-white p-6 rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-4">Testimonials & Community Feed</h3>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div class="testimonials-carousel owl-carousel owl-theme">
+                                            {% for testimonial in testimonials %}
+                                            <div class="item">
+                                                <div class="bg-gray-100 p-4 rounded-lg">
+                                                    <div class="flex items-center mb-2">
+                                                        <img src="{{ testimonial.user_image }}" class="w-10 h-10 rounded-full mr-2">
+                                                        <div>
+                                                            <p class="font-bold">{{ testimonial.user_name }}</p>
+                                                            <p class="text-sm text-gray-500">{{ testimonial.date }}</p>
+                                                        </div>
+                                                    </div>
+                                                    <p>{{ testimonial.content }}</p>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="community-feed bg-gray-100 p-4 rounded-lg">
+                                            <h4 class="font-bold mb-2">Recent Community Posts</h4>
+                                            {% for post in community_posts %}
+                                            <div class="mb-4 pb-4 border-b border-gray-300">
+                                                <div class="flex items-center mb-2">
+                                                    <img src="{{ post.user_image }}" class="w-8 h-8 rounded-full mr-2">
+                                                    <p class="font-bold">{{ post.user_name }}</p>
+                                                </div>
+                                                <p class="text-sm">{{ post.content|truncatechars:120 }}</p>
+                                                <div class="flex mt-2 text-sm">
+                                                    <span class="mr-3"><i class="fas fa-heart mr-1"></i> {{ post.likes }}</span>
+                                                    <span><i class="fas fa-comment mr-1"></i> {{ post.comments }}</span>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded mt-2 w-full">
+                                                View All Posts
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-8  col-12 mb-3">
+                                <div class="bg-temple">
+                                    <div class="d-flex ">
+                                        <div>
+                                            <div class="text-temple">
+                                                <div class="ff-three">
+                                                    <div>
+                                                        <h3>The 3 debts <br> in a mans life...</h3>
+                                                    </div>
+                                                    <div class="border-left">
+                                                        <h4>- Debt toc God</h4>
+                                                        <h4>- debt to saints and sages</h4>
+                                                        <h4>- debt to ancestors</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tt-text">
+                                                <h5>Tample architechture</h5>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <img src="./assets/images/temple.png" class="img-fluid h-100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4  col-12">
+                                <div class="card-design mb-4">
+                                    <div class="card-imgs">
+                                        <img src="./assets/images/dateone.png" class="img-fluid">
+                                    </div>
+                                    <div class="card-txt">
+                                        <h3>Sept 20-22</h3>
+                                        <a class="btn " href="#">More</a>
+                                    </div>
+                                </div>
+                                <div class="card-design second-card">
+                                    <div class="card-imgs">
+                                        <img src="./assets/images/datetwo.png" class="img-fluid">
+                                    </div>
+                                    <div class="card-txt">
+                                        <h3>Sept 20-22</h3>
+                                        <a class="btn " href="#">More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-7 col-12 mb-3">
+                                <div class="second-card-to">
+                                    <div class="calendar">
+                                        <h5>Hindu Calendar</h5>
+                                        <div class="days">
+                                            <div class="day-name">Sun</div>
+                                            <div class="day-name">Mon</div>
+                                            <div class="day-name">Tue</div>
+                                            <div class="day-name">Wed</div>
+                                            <div class="day-name">Thu</div>
+                                            <div class="day-name">Fri</div>
+                                            <div class="day-name">Sat</div>
+    
+                                            <div></div>
+                                            <div></div>
+                                            <div class="day">1</div>
+                                            <div class="day">2</div>
+                                            <div class="day">3</div>
+                                            <div class="day">4</div>
+                                            <div class="day">5</div>
+    
+                                            <div class="day">6</div>
+                                            <div class="day">7</div>
+                                            <div class="day">8</div>
+                                            <div class="day">9</div>
+                                            <div class="day">10</div>
+                                            <div class="day">11</div>
+                                            <div class="day">12</div>
+    
+                                            <div class="day">13</div>
+                                            <div class="day">14</div>
+                                            <div class="day">15</div>
+                                            <div class="day">16</div>
+                                            <div class="day">17</div>
+                                            <div class="day">18</div>
+                                            <div class="day">19</div>
+    
+                                            <div class="day">20</div>
+                                            <div class="day">21</div>
+                                            <div class="day">22</div>
+                                            <div class="day">23</div>
+                                            <div class="day">24</div>
+                                            <div class="day">25</div>
+                                            <div class="day">26</div>
+    
+                                            <div class="day">27</div>
+                                            <div class="day">28</div>
+                                            <div class="day">29</div>
+                                            <div class="day">30</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="./assets/images/mataji.png" class="img-fluid" alt="f">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+    
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-12">
+                                <div class="bg-select">
+                                    <div>
+                                        <h3>BOOK A POOJA</h3>
+                                    </div>
+                                    <div>
+                                        <select class="form-select w-70" aria-label="Default select example">
+                                            <option selected>Select Temple</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                        <div class="mb-3 w-70">
+                                            <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
+                                            <input type="date" class="form-control" id="exampleFormControlInput1">
+                                        </div>
+                                        <a class="btn book-btn" href="#">BOOK NOW</a>
+                                    </div>
+                                    <div>
+                                        <img src="./assets/images/selecttemple.png" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-30 pb-0">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 col-12 mb-3">
+                                <div class="bg-red mb-3 d-flex align-items-center">
+                                    <div class="w-100">
+                                        <img src="./assets/images/dadrshanmainlogo.png" class="img-fluid">
+                                        <h3>Rare temples (303)</h3>
+                                    </div>
+                                </div>
+                                <div class="bg-red sss mb-3 d-flex align-items-center">
+                                    <div class="w-100">                           
+                                        <img src="./assets/images/dadrshanmainlogo.png" class="img-fluid">
+                                        <h3>Save a temples (6)</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 mb-3">
+                                <div class="bg-brown h-100">
+                                    <div class="donate-img">
+                                        <img src="./assets/images/rate.png" class="img-fluid mb-4">
+                                    </div>
+                                    <div class="donate-icon mt-md-5">
+                                        <img src="./assets/images/dadrshanmainlogo.png" class="img-fluid mt-4">
+                                        <h3>Donate (06)</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-12 mb-3">                            
+                                <div class="bg-red sss mb-3 d-flex align-items-center">
+                                        <div class="w-100">
+                                        <img src="./assets/images/dadrshanmainlogo.png" class="img-fluid ">
+                                        <h3>Amazing temples (63)</h3>
+                                    </div>
+                                </div>
+                                <div class="bg-red mb-3 d-flex align-items-center">
+                                    <div class="w-100">
+                                        <img src="./assets/images/dadrshanmainlogo.png" class="img-fluid">
+                                        <h3>Form a trust (303)</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-30 pb-0">
+                    <div class="bg-brown">
+                        <div class="container fluid">
+                            <h6>INDIA'S FIRST PORTAL DEDICATED TO DIVINE TRAVEL & WOKSHIP</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="bg-brown-two ">
+                                    <h3>Divine Store</h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="d-flex mb-4">
+                                    <div class="divine">
+                                        <img src="./assets/images/sarsvati.png" class="img-fluid">
+                                        <h3>SARASWATHI YAGAM RAJAHMUNDRY <br> JAN 11-20TH</h3>
+                                    </div>
+                                    <div class="divine me-0">
+                                        <img src="./assets/images/om.png" class="img-fluid">
+                                        <h3>SARASWATHI YAGAM RAJAHMUNDRY <br> JAN 11-20TH</h3>
+                                    </div>
+                                </div>
+                                <div class="divine me-0 d-flex m-auto justify-content-center">
+                                    <a href="#" class="btn">BOOK MY HOMAN</a>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-30 pt-0">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-6 col-12">
+                                <div class="footer-img h-100">
+                                    <img src="./assets/images/footer.png" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-12">
+                                <div class="bg-brown">
+                                    <div class="heading_label mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">SELECT YOUR
+                                            ISSUE</label>
+                                        <!-- <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"> -->
+                                    </div>
+                                    <div class="d-flex checkbox">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Problem
+                                            </label>
+                                        </div>
+                                        <div class="form-check ms-md-4">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                Pooja
+                                            </label>
+                                        </div>
+                                        <div class="form-check ms-md-4">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                Temple Search
+                                            </label>
+                                        </div>
+                                        <div class="form-check ms-md-4">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                More
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <dvi class="d-flex checkbox">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Tamples/Pligrim
+                                            </label>
+                                        </div>
+                                        <div class="form-check ms-md-4">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                            <label class="form-check-label" for="flexCheckChecked" style="white-space: nowrap;">
+                                                Spiritual garus
+                                            </label>
+                                        </div>
+                                    </dvi>
+                                        <dvi class="d-flex checkbox">
+                                            
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                            <label class="form-check-label" for="flexCheckChecked" style="white-space: nowrap;">
+                                                Ashram Search
+                                            </label>
+                                        </div>
+                                        <div class="form-check ms-md-4">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                            <label class="form-check-label" for="flexCheckChecked" style="white-space: nowrap;">
+                                                Checked checkbox
+                                            </label>
+                                        </div>
+    
+                                    </dvi>
+                                    <div class="mb-3 checkbox w-100">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Your Name</label>
+                                        <input class="form-control" id="exampleFormControlTextarea1" type="text"></input>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="exampleFormControlTextarea1" class="block text-gray-700 mb-2">Email ID</label>
+                                        <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" id="exampleFormControlTextarea1" type="email"></input>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="exampleFormControlTextarea1" class="block text-gray-700 mb-2">Description</label>
+                                        <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="#">TEMPLE FESTIVALS</a>
+                                        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2" href="#">RITUALS [TELUGU]</a>
+                                        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2" href="#">GENERAL FESTIVALS</a>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="bg-min-yellow">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-4 col-lg-12 p-0">
+                                <div class=" bg-community">
+                                    <div class="comunity-txt mt-0">
+                                        <h3>Community Theatres</h3>
+                                        <p>A land of diverse traditions, vibrant festivals, and timeless artistry.</p>
+                                    </div>
+                                    <div class="community-threat">
+                                        <div>
+                                            <img src="./assets/images/footerpart.png" class="img-fluid">
+                                        </div>
+                                        <div class="threat-details">
+                                            <h3>Kerala</h3>
+                                            <p>A dance-drama with expressive gestures.</p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="community-threat">
+                                        <div>
+                                            <img src="./assets/images/keralatwo.png" class="img-fluid">
+                                        </div>
+                                        <div class="threat-details">
+                                            <h3>Kerala</h3>
+                                            <p>A dance-drama with expressive gestures.</p>
+                                        </div>
+                                    </div> -->
+                                    <div class="community-threat">
+                                        <div>
+                                            <img src="./assets/images/keralathree.png" class="img-fluid">
+                                        </div>
+                                        <div class="threat-details">
+                                            <h3>Kerala</h3>
+                                            <p>A dance-drama with expressive gestures.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-12">
+                                <div class="comunity-txt">
+                                    <h3 class="pt-3">Hindu Philosophy</h3>
+                                    <hr>
+                                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, commodi? Iure nobis adipisci officiis
+                                                     voluptates ad. Cumque repudiandae ex sed.</p> -->
+                                </div>
+                                <div class="hindu">
+                                    <div class="d-flex align-items-center">
+                                        <div class="">
+                                            <div class="d-flex mb-1 ">
+                                                <div class="hindu-icon">
+                                                    <img src="./assets/images/phicon.png" class="img-fluid">
+                                                </div>
+                                                <div>
+                                                    <h3>Bhakti Movement (Devlotional Path) </h3>
+                                                    <h4>Philosopher: Mirabai & Tulsidas</h4>
+                                                </div>
+                                            </div>
+                                            <h5>Focuses on personal devotion to a deity, leading to
+                                            spiritual liberation. Promotes love, humility, and
+                                            surrender.</h5>
+                                            <hr>
+                                        </div>
+                                        <div class="hindu-img">
+                                            <img src="./assets/images/poojadish.png" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hindu">
+                                    <div class="">
+                                        <div class="d-flex mb-1 ">
+                                            <div class="hindu-icon">
+                                                <img src="./assets/images/phtwo.png" class="img-fluid">
+                                            </div>
+                                            <div>
+                                                <h3>Dharma & Karma </h3>
+                                                <h4>Concepts found in Bhagavad Gita & Manusmriti</h4>
+                                            </div>
+                                        </div>
+                                        <h5>Dharma refers to duty and righteousness in life. Karma
+                                        is the law of cause and effect, shaping future
+                                        experiences based on past actions.</h5>
+                                        <hr>
+                                    </div>
+                                    <div class="hindu-img">
+                                        <img src="./assets/images/poojatwo.png" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-onee">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 mb-3 mb-md-0 align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                                        PUROHITS & PANDITS [ AREA WISE RATED ]
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label checkbox-padding" for="flexCheckChecked">
+                                        CHECK MY ASTROLOGY [ FILL IN THE FORM-FREE]
+                                    </label>
+                                </div>
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="bg-two">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                                        MANTRAS & MEANINGS [ WISE AUDIO ]
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                    <label class="form-check-label checkbox-padding" for="flexCheckChecked">
+                                        YAJNAS & RITUALS [NEXT 3 MONTHS-LISTED]
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="checkbox-sp">
+    
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    MANTRAS & MEANINGS [ WISE AUDIO ]
+                                </label>
+                            </div>
+                            <div class="form-check mb-0">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    YAJNAS & RITUALS [NEXT 3 MONTHS-LISTED]
+                                </label>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="bg-three">
+                    <div class="container-fluid">
+                        <div class="checkbox-sp">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                                    DIVINE AUDIO & [ VIDEOS ]
+                                </label>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-four">
+                    <div class="container-fluid">
+                        <div class="checkbox-sp">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                                    BOOKS & LITERATURE [FROM GURUS]
+                                </label>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-five">
+                    <div class="container-fluid">
+                        <div class="checkbox-sp">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                                    GOD IDOLS
+                                </label>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+                <!-- Location section design end -->
+                <div class="">
+                    <footer class="bd-footer  mt-5 ">
+                        <div class="container-fluid ">
+                            <div class="row justify-content-between">
+                                <div class="col-6 col-lg-4 mb-3">
+                                    <div class="footer-link">
+                                        <h5>Amazing Facts...</h5>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><a href="">Why do web do it ?</a></li>
+                                            <li class="mb-2"><a href="">Types of marriages</a></li>
+                                            <li class="mb-2"><a href="">mpdern day marriages</a></li>
+                                            <!-- <li class="mb-2"><a href="">Parcel</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-4 mb-3">
+                                    <div class="footer-link">
+                                        <h5>TEMPLES OUTSIDE INDIA</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="footer-bottom">
+                                <h3>Copyrights @ 2025 <a href="#">Darsanam</a>. All Rights Reserved</h3>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+    
+            <script>AOS.init();</script>
+            <!-- owl Carousel JS -->
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/vendors/jquery.min.js"></script>
+            <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
+            <script src="./assets/js/style.js"></script>
+        </div>
+    </div>
+    <!-- </nav> -->
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Darshanam{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'frontend/css/styles.css' %}">
+</head>
+<body>
+    {% if not request.path|slice:":6" == '/admin' %}
+        {% include 'frontend/partials/header.html' %}
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% if not request.path|slice:":6" == '/admin' %}
+        {% include 'frontend/partials/footer.html' %}
+    {% endif %}
+</body>
+</html>

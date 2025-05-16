@@ -1,0 +1,36 @@
+{% extends 'frontend/dashboard.html' %}
+
+{% block dashboard_content %}
+<div class="astrology-report">
+    <h1>Your AI Astrology Report</h1>
+    
+    <div class="report-header">
+        <div class="user-info">
+            <p><strong>Name:</strong> {{ report.user.name }}</p>
+            <p><strong>Date of Birth:</strong> {{ report.birth_date|date:"F j, Y" }}</p>
+            <p><strong>Time of Birth:</strong> {{ report.birth_time|time:"h:i A" }}</p>
+            <p><strong>Place of Birth:</strong> {{ report.birth_place }}</p>
+        </div>
+        <div class="report-meta">
+            <p><strong>Generated On:</strong> {{ report.generated_at|date:"F j, Y h:i A" }}</p>
+            <a href="{{ report.download_url }}" class="btn btn-primary" download>Download PDF Report</a>
+        </div>
+    </div>
+    
+    <div class="report-sections">
+        {% for section in report.sections %}
+        <div class="report-section">
+            <h2>{{ section.title }}</h2>
+            <div class="section-content">
+                {{ section.content|safe }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="report-actions">
+        <a href="{% url 'astrology_services' %}" class="btn btn-secondary">Back to Astrology</a>
+        <a href="{% url 'book_appointment' %}" class="btn btn-primary">Book Consultation</a>
+    </div>
+</div>
+{% endblock %}

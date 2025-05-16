@@ -1,0 +1,58 @@
+{% extends 'frontend/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Contact Us</h1>
+    
+    <section class="contact-form-section">
+        <h2>Send Us a Message</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+    
+    <section class="location-section">
+        <h2>Our Location</h2>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.837354018014!2d77.2094073150818!3d28.56908298244145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2a99b6f9fa7%3A0x83a25e55f0af1c82!2sIndia%20Gate!5e0!3m2!1sen!2sin!4v1626787217761!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    
+    <section class="contact-info-section">
+        <h2>Contact Information</h2>
+        <div class="contact-methods">
+            <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <span>Email: contact@darshanam.com</span>
+            </div>
+            <div class="contact-method">
+                <i class="fas fa-phone"></i>
+                <span>Phone: +91 1234567890</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="social-media-section">
+        <h2>Connect With Us</h2>
+        <div class="social-links">
+            <a href="https://facebook.com/darshanam" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/darshanam" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/darshanam" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/darshanam" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </section>
+</div>
+{% endblock %}
