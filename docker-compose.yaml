@@ -4,7 +4,12 @@
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8111
+    # command: python manage.py runserver 0.0.0.0:8111
+    command: >
+      sh -c "python manage.py migrate &&
+            python manage.py shell -c \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.filter(username='darshanam').exists() or User.objects.create_superuser('darshanam', 'admin@example.com', 'Dev@1234')\" &&
+            python manage.py runserver 0.0.0.0:8111"
+
     volumes:
       - .:/app  # Mounts your current directory (including db.sqlite3) into /app
     ports:
