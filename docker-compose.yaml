@@ -1,0 +1,20 @@
+# docker-compose.yaml
+# version: '3.8' # This top-level 'version' is becoming obsolete, you can remove it
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8111
+    volumes:
+      - .:/app  # Mounts your current directory (including db.sqlite3) into /app
+    ports:
+      - "8111:8111"
+    environment:
+      - DEBUG=1
+      # Ensure ALLOWED_HOSTS in settings.py is appropriate
+      # e.g., ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    # No depends_on needed for a file-based database like SQLite
+    # that's part of the main app's volume
+
+# No 'volumes:' section needed at the top level if db.sqlite3 is included in the .:/app mount
+# and you are not using a separate named volume for it.
