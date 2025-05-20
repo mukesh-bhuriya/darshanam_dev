@@ -1,0 +1,2414 @@
+/* ==========================================================================
+   1. CSS Variables and Global Resets/Defaults
+   ========================================================================== */
+:root {
+    --primary-color: #500724; /* Your dark maroon */
+    --accent-color: #fdba74;  /* Your orange accent */
+    --light-bg: #fdfaf6;      /* A very light cream for backgrounds */
+    --text-color: #333333;
+    --text-light: #555555;
+    --border-color: #dddddd;
+    --container-width: 1140px; /* Standard container width */
+    --border-radius: 8px;
+    --header-height: 70px; /* Approximate header height for scroll padding */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height); /* Adjust if header height changes */
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Fallback to generic sans-serif */
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* For sticky footer */
+}
+
+main {
+    flex: 1; /* Allows main content to grow and push footer down */
+    width: 100%;
+    padding-top: 20px; /* Add some space below sticky header */
+    padding-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   2. Utility Classes
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* ==========================================================================
+   3. General Button Styling
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #3d051b; /* Darker shade of primary */
+    border-color: #3d051b;
+    color: white;
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+}
+
+.btn-accent:hover {
+    background-color: #fca750; /* Darker shade of accent */
+    border-color: #fca750;
+    color: var(--primary-color);
+}
+
+.btn-link {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+}
+.btn-link:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+    transform: none; /* No lift for link buttons */
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   4. Header Styles
+   ========================================================================== */
+/* Devotional themed header.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff8f0;
+}
+
+header {
+  background: #b35400; /* deep saffron */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(179, 84, 0, 0.7);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo */
+.logo a {
+  color: #fff3c0; /* soft cream */
+  font-weight: 900;
+  font-size: 1.9rem;
+  letter-spacing: 2.5px;
+  text-decoration: none;
+  font-family: 'Georgia', serif;
+  text-shadow: 1px 1px 2px #6b3100;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #ffd54f; /* warm gold */
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #fff3c0; /* soft cream */
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 5px rgba(255, 213, 79, 0.2);
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+  background-color: #ffd54f; /* warm gold */
+  color: #6b3100; /* dark saffron */
+  outline: none;
+  box-shadow: 0 0 10px #ffd54f;
+}
+
+/* Language selector */
+.language-selector {
+  position: relative;
+}
+
+.language-selector select {
+  background: #6b3100; /* dark saffron */
+  color: #fff3c0; /* soft cream */
+  border: none;
+  border-radius: 6px;
+  padding: 7px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+  min-width: 140px;
+  box-shadow: 0 0 6px rgba(255, 213, 79, 0.3);
+}
+
+.language-selector select:hover,
+.language-selector select:focus {
+  background-color: #ffd54f; /* warm gold */
+  color: #6b3100;
+  outline: none;
+  box-shadow: 0 0 12px #ffd54f;
+}
+
+/* Hamburger menu */
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: #fff3c0;
+  height: 4px;
+  width: 100%;
+  border-radius: 3px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: '';
+  position: absolute;
+}
+
+.nav-toggle-label span::before {
+  top: -8px;
+}
+
+.nav-toggle-label span::after {
+  top: 8px;
+}
+
+/* Toggle animation */
+
+.nav-toggle:checked + .nav-toggle-label span {
+  background: transparent;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.nav-toggle:checked + .nav-toggle-label span::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Responsive styles */
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    height: calc(100% - 64px);
+    width: 220px;
+    background: #b35400; /* saffron */
+    flex-direction: column;
+    gap: 0;
+    padding-top: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    border-left: 1px solid #6b3100;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+  }
+
+  .nav-toggle:checked ~ .nav-links {
+    transform: translateX(0);
+  }
+
+  .nav-toggle-label {
+    display: block;
+  }
+
+  .language-selector {
+    display: none; /* Hide language selector on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========================================================================== */
+/* 5. Login Page Styles - Devotional theme for Darshanam */
+/* ========================================================================== */
+
+.login-form-section {
+  background: #fff8f0; /* Soft warm cream */
+  padding: 40px 35px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(179, 84, 0, 0.25); /* warm saffron shadow */
+  max-width: 400px;
+  margin: 10px auto;
+  font-family: 'Georgia', serif;
+  color: #6b3100; /* dark saffron text */
+  transition: transform 0.3s ease;
+}
+
+.login-form-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(179, 84, 0, 0.35);
+}
+
+.login-form-section h1 {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.3rem;
+  margin-bottom: 30px;
+  color: #b35400; /* deep saffron */
+  text-shadow: 1px 1px 2px #6b3100;
+  letter-spacing: 2px;
+}
+
+.login-form-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form-section .form-group {
+  margin-bottom: 24px;
+}
+
+.login-form-section label {
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 1.1rem;
+  color: #6b3100;
+  letter-spacing: 0.5px;
+}
+
+.login-form-section input.form-control {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 17px;
+  border: 2px solid #ffd54f; /* warm gold border */
+  border-radius: 12px;
+  background-color: #fff8f0;
+  color: #6b3100;
+  font-weight: 600;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: inset 0 1px 4px rgba(179, 84, 0, 0.1);
+}
+
+.login-form-section input.form-control::placeholder {
+  color: #bfa45a;
+  font-style: italic;
+}
+
+.login-form-section input.form-control:focus {
+  border-color: #b35400; /* deep saffron */
+  box-shadow: 0 0 12px #b35400aa;
+  outline: none;
+  background-color: #fffdf7;
+}
+
+.login-form-section button.btn-primary {
+  background: linear-gradient(135deg, #b35400, #ffd54f);
+  border: none;
+  padding: 14px 20px;
+  font-size: 1.25rem;
+  color: #fff3c0;
+  font-weight: 900;
+  border-radius: 14px;
+  cursor: pointer;
+  letter-spacing: 1.2px;
+  box-shadow: 0 6px 15px rgba(179, 84, 0, 0.6);
+  transition: background 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+}
+
+.login-form-section button.btn-primary:hover {
+  background: linear-gradient(135deg, #ffd54f, #b35400);
+  box-shadow: 0 10px 25px rgba(255, 213, 79, 0.8);
+  transform: scale(1.05);
+}
+
+.login-form-section a.btn-link {
+  margin-top: 16px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #b35400;
+  text-decoration: none;
+  display: inline-block;
+  text-align: right;
+  transition: color 0.3s ease;
+  letter-spacing: 0.7px;
+}
+
+.login-form-section a.btn-link:hover {
+  color: #6b3100;
+  text-decoration: underline;
+}
+
+.register-section {
+  text-align: center;
+  margin-top: 36px;
+  font-size: 1.1rem;
+  color: #6b3100;
+  font-family: 'Georgia', serif;
+}
+
+.register-section a {
+  color: #b35400;
+  font-weight: 900;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.register-section a:hover {
+  color: #6b3100;
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 480px) {
+  .login-form-section {
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+  
+  .login-form-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .login-form-section button.btn-primary {
+    font-size: 1.1rem;
+    padding: 12px 18px;
+  }
+}
+
+/* ==========================================================================
+   6. Alert Messages (for Django messages)
+   ========================================================================== */
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+.alert strong {
+    margin-right: 5px;
+}
+
+/* Example: Add icons to alerts (requires Font Awesome or similar)
+.alert::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+.alert-danger::before { content: "\f071"; }
+.alert-success::before { content: "\f058"; }
+.alert-info::before { content: "\f05a"; }
+.alert-warning::before { content: "\f06a"; }
+*/
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+/* ==========================================================================
+   7. Footer Styles
+   ========================================================================== */
+.site-footer-main {
+    background-color: #2c2c2c; /* Slightly lighter dark shade for footer */
+    color: #e0e0e0; /* Lighter text for better readability */
+    padding: 60px 0 20px;
+    margin-top: auto; /* For sticky footer */
+    font-size: 0.9rem;
+}
+
+.site-footer-main a {
+    color: var(--accent-color);
+    transition: color 0.2s ease;
+}
+.site-footer-main a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.site-footer-main h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-section {
+    /* Flex basis for grid items is handled by minmax in grid-template-columns */
+}
+
+.footer-section.contact-info p {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+.footer-section.contact-info i { /* For Font Awesome icons */
+    margin-right: 10px;
+    color: var(--accent-color);
+    width: 20px; /* Ensure consistent icon spacing */
+    text-align: center;
+}
+
+.footer-section.quick-links ul,
+.footer-section.social-links ul { /* Assuming you might add social links */
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.quick-links ul li,
+.footer-section.social-links ul li {
+    margin-bottom: 10px;
+}
+.footer-section.social-links ul {
+    display: flex;
+    gap: 15px;
+}
+.footer-section.social-links ul li a i {
+    font-size: 1.5rem; /* Larger social icons */
+}
+
+
+.newsletter-form {
+    display: flex;
+    margin-top: 10px;
+}
+
+.newsletter-form input[type="email"] {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #555;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    background-color: #444;
+    color: #fff;
+    font-size: 1rem;
+}
+.newsletter-form input[type="email"]::placeholder {
+    color: #aaa;
+}
+.newsletter-form input[type="email"]:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.newsletter-form button {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    padding: 12px 18px;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #444; /* Slightly more visible border */
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+
+/* ==========================================================================
+   8. YOUR ORIGINAL CSS STARTS HERE
+   (Styles below are from your provided style.css, appended for other components
+    and specific media queries. Review for conflicts or redundancy with above.)
+   ========================================================================== */
+
+/* This is where your original style.css content would be pasted.
+   For brevity, I'm not re-pasting the ~800 lines here,
+   but you should put your entire original CSS content below this comment.
+   Example:
+*/
+/* Original header and footer if still used elsewhere without new classes */
+header {
+    /* Your original header styles if any that are NOT .site-header */
+    /* For example, if you had a header on admin pages without the .site-header class */
+}
+footer {
+    /* Your original footer styles if any that are NOT .site-footer-main */
+    /* Example:
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    */
+}
+.footer-content .contact-info { /* Example of how original might be scoped */
+    /* Your original .contact-info specific styles, may need adjustment */
+}
+.footer-content .quick-links {
+    /* Your original .quick-links specific styles */
+}
+.copyright p {
+    /* Your original copyright paragraph styles */
+}
+
+/* All other specific styles from your original CSS */
+.border-fristsection img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.darsanam-bgpng {
+    background-image: url("../images/darsanam-bg.png") !important;
+}
+.website-firstbg {
+    background-image: url("../images/bannerImage.png") !important;
+    height: 321px;
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+.website-main-logo {
+    display: flex;
+}
+
+.py-30 {
+    padding: 30px 0;
+}
+
+.website-main-logo img {
+    height: 200px;
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3),
+        0 6px 6px rgba(0, 0, 0, 0.2); */
+}
+
+.website-main-logo h2 {
+    color: #fff;
+    font-family: ui-serif;
+        font-style: italic;
+    margin-bottom: 0%;
+    font-size: 40px;
+}
+
+.bg-nav {
+    background-color: rgb(217 184 151);
+    border-radius: 12px;
+    padding: 10px;
+}
+
+.bg-nav.navbar-light .navbar-nav .nav-link {
+    font-size: 14px;
+    color: #500724;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.bg-nav.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    padding: 10px;
+    background-color: rgb(80 7 36);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.btn.btn-login { /* Note: .btn class from new styles will also apply. This makes it more specific. */
+    background-color: #fdba74;
+    color: #000000;
+    font-size: 16px; /* May be overridden by .btn-sm or general .btn */
+    font-weight: 600;
+    padding: 14px; /* May be overridden */
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-right: 2px solid #500724;
+}
+
+.btn.btn-login:focus {
+    box-shadow: none;
+}
+
+.btn.btn-login:hover {
+    border-color: #500724; /* Corrected color value */
+    color: #fff;
+}
+
+.btn.btn-register { /* Note: .btn class from new styles will also apply. */
+    background-color: #fdba74;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.btn.btn-register:focus {
+    box-shadow: none;
+}
+
+.btn.btn-register:hover {
+    border-color: #500724; /* Corrected color value */
+    color: #fff;
+}
+
+.bg-first-section {
+    background-color: rgb(231 209 182);
+}
+
+.location-for-site {
+    position: relative;
+}
+
+.box-design-for-muharat {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: rgb(246, 229, 199);
+    padding: 10px 25px;
+    border-radius: 14px;
+    height: 270px;
+    width: 260px;
+    /* box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000); */
+}
+
+.box-design-for-muharat img {
+    max-width: 150px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    margin: auto;
+}
+
+.box-design-for-muharat h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    color: #500724;
+    margin-bottom: 10px;
+}
+
+.box-design-for-muharat p {
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+    color: #500724;
+    margin-bottom: 10px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    height: 100%;
+}
+
+.image-gallery img {
+    border-radius: 12px;
+    height: 300px;
+    width: 100%;
+}
+
+.bg-astrological {
+    background-color: rgb(246, 229, 199);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.bg-astrological h3 {
+    font-size: 21px;
+    font-weight: 900;
+    color: #500724;
+}
+
+.services-img {
+    display: flex;
+}
+
+.services-img img {
+    height: 150px;
+    max-width: 150px;
+    /* width: 100%; */
+    margin-right: 15px;
+}
+
+.bg-astrological h4 {
+    color: #500724;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.bg-astrological p {
+    font-size: 12px;
+    color: #500724;
+    /* margin-bottom: 20px; */
+    font-weight: 400;
+}
+
+.img-gallery-two {
+    display: flex;
+    position: relative;
+    max-width: 180px;
+    height: 180px;
+    width: 100%;
+    padding: 0 5px;
+
+}
+
+.img-gallery-two img {
+    border-radius: 16px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-gallery-two h3 {
+    position: absolute;
+    color: #fff;
+    left: 41%; /* Consider using transform for better centering: left: 50%; top: 50%; transform: translate(-50%, -50%); */
+    top: 16%;
+    font-size: 12px;
+    transform: translate(-50%, -50%) !important; /* This implies you want to override something, check context */
+}
+
+.bg-temple {
+    background-color: #500724;
+    border-radius: 14px;
+    position: relative;
+    height: 100%;
+}
+
+.bg-temple img {
+    position: absolute;
+    /* background-position: left; */
+    right: 0%;
+    bottom: 0%;
+    height: -webkit-fill-available; /* Consider standard '100%' or 'auto' depending on context */
+}
+
+.text-temple {
+    display: flex;
+    padding: 50px;
+
+}
+
+.text-temple h3 {
+    font-size: 21px;
+    color: #fff;
+    font-weight: 900;
+    margin-right: 20px;
+    /* display: flex; */
+}
+
+.text-temple img {
+    /* background-color: aquamarine; */
+    width: 10px; /* This seems very small for an image, verify its purpose */
+}
+
+.text-temple h4 {
+    font-size: 16px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.border-left {
+    border-left: 3px solid #ffffff;
+}
+
+.tt-text h5 {
+    font-size: 12px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+}
+
+.card-design {
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    background-color: #78716C;
+    padding: 30px 40px;
+}
+
+.card-imgs {
+    margin-right: 30px;
+    border-radius: 50%; /* Applied to container, img inside should also be rounded if this is for avatar effect */
+}
+
+.card-imgs img {
+    /* width: 100%; */
+    max-width: 200px;
+    height: 200px;
+    border: 8px solid #500724;
+    /* display: flex; */
+    border-radius: 50%;
+    /* justify-content: center; */
+    object-fit: cover;
+}
+
+.card-txt h3 {
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.card-txt a {
+    background-color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 10px; /* This is quite small padding for a button-like link */
+    width: 100%; /* Consider if this should be display: block or inline-block */
+    border-radius: 40px;
+    color: #500724;
+    font-size: 26px; /* This is a very large font size for a link */
+}
+
+.card-txt a:hover {
+    background-color: #500724;
+    color: #fff;
+}
+
+.book-btn {
+    background-color: #fff;
+    border: 2px solid #fff;
+    padding: 4px 36px;
+    /* width: 100%; */
+    border-radius: 14px;
+    color: #500724;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.book-btn:hover {
+    background-color: #500724;
+    color: #fff;
+}
+
+.second-card {
+    background-color: rgb(193, 114, 75) !important;
+}
+
+.second-card-to {
+    border-radius: 16px;
+    padding: 40px;
+    background-color: rgb(193, 114, 75);
+    position: relative;
+}
+
+.second-card-to h5 {
+    font-size: 21px;
+    font-weight: bolder;
+    color: #500724;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+.second-card-to img {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    /* height: -webkit-fill-available; */ /* Consider alternative like height: 100% */
+    z-index: 1; /* Ensure this is needed and doesn't conflict with other positioned elements */
+    width: 262px;
+    height: 361px;
+}
+
+.calendar {
+    width: 350px;
+    background: transparent; /* Might be hard to read if background of parent is complex */
+    padding: 20px;
+    border-radius: 12px;
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */ /* Consider adding a subtle shadow for depth */
+}
+
+/* Calendar header conflicts with general header tag style. Be specific */
+.calendar > header { /* Style for header *inside* .calendar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: transparent; /* Explicitly set, as general header might have a bg */
+    box-shadow: none;
+    position: static;
+    height: auto;
+}
+
+
+.calendar > header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.calendar .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+
+.calendar .day-name {
+    font-weight: bold;
+    color: #ffffff; /* Ensure this has enough contrast on its background */
+}
+
+.calendar .day {
+    /* background: #f0f0f0; */ /* Default bg commented out */
+    padding: 10px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff; /* Ensure contrast */
+    transition: background 0.3s, color 0.3s; /* Added color transition */
+}
+
+.calendar .day:hover {
+    background: #fff;
+    color: var(--primary-color); /* Use a theme color for text on hover */
+}
+
+.bg-select {
+    background-color: rgb(235, 169, 57);
+    border-radius: 16px;
+    position: relative;
+    height: 100%; /* Ensure parent has height or this means nothing */
+    padding: 40px;
+}
+
+.bg-select img {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    height: -webkit-fill-available;
+}
+
+.bg-select h3 {
+    font-size: 21px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.bg-select select {
+    background-color: transparent !important; /* `!important` can be problematic, try to avoid if possible */
+    border-color: transparent;
+    color: #fff; /* Ensure contrast */
+    background-image: none; /* Removes default browser arrow, may need custom arrow */
+    font-size: 21px;
+    /* Consider adding appearance: none; -webkit-appearance: none; for cross-browser consistency */
+}
+
+.bg-select select:focus {
+    box-shadow: none;
+}
+
+.bg-select input {
+    background-color: transparent;
+    border-color: transparent;
+    color: #fff !important; /* Ensure contrast, avoid !important if possible */
+    font-size: 21px;
+    background-image: none;
+}
+
+.bg-select input:focus {
+    box-shadow: none;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.bg-red {
+    background-color: rgb(193, 114, 75);
+    border-radius: 16px;
+    padding: 40px;
+    height: 310px;
+}
+
+.bg-red img {
+    background-color: #500724;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex; /* For centering content *inside* this element if it were a container */
+    justify-content: center; /* Not effective on img tag itself */
+    align-items: center;   /* Not effective on img tag itself */
+    margin: auto; /* This centers the image block */
+}
+
+.bg-red h3 {
+    font-size: 21px;
+    font-weight: bold;
+    color: #500724;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sss { /* Class name is not descriptive, consider renaming */
+    background-color: #FDBA74;
+}
+
+.bg-brown {
+    background-color: #500724;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.donate-img img {
+    background-color: #fff; /* If image has transparency, this will be visible */
+    border-radius: 16px;
+    display: block; /* Changed from flex as it's an img tag */
+    width: 100%;
+    height: 500px; /* Consider max-height and object-fit if aspect ratio is an issue */
+    margin: auto;
+    object-fit: cover; /* Or contain, depending on desired effect */
+}
+
+.donate-icon img {
+    background-color: #FED7AA;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    display: block; /* Changed from flex */
+    margin: auto;
+    object-fit: cover;
+}
+
+.donate-icon h3 {
+    color: rgb(246, 229, 199);
+    font-size: 21px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.bg-brown h6 {
+    margin-bottom: 0%;
+    font-size: 40px;
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.bg-brown-two {
+    background-color: #500724;
+    border-radius: 16px;
+    padding-bottom: 200px; /* Large padding, ensure this is intended */
+}
+
+.bg-brown-two h3 {
+    background-color: #d6d3d6;
+    padding: 30px;
+    border-radius: 16px 16px 0px 0;
+    font-size: 21px;
+    color: #500724;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 100px !important; /* High margin, !important indicates potential specificity issues */
+}
+
+.divine {
+    background-color: #FDBA74;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 0 20px;
+}
+
+.divine img {
+    height: 150px;
+    width: 150px;
+    display: block; /* Changed from flex */
+    margin: auto;
+    object-fit: cover;
+}
+
+.divine h3 {
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.divine a {
+    font-size: 21px;
+    color: #500724;
+    font-weight: bold;
+    display: block; /* Good for link areas */
+    text-align: center; /* If you want the link text centered */
+}
+
+.footer-img img { /* This seems like a specific image for a footer, not the general site footer */
+    border-radius: 16px;
+    height: 100%; /* Will take height of parent or be 0 if parent has no height */
+    display: block;
+    margin: auto; /* If width is less than 100% */
+}
+
+.heading_label label {
+    font-size: 21px;
+    color: #fff; /* Ensure contrast with background */
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.checkbox label { /* This will style all labels inside .checkbox */
+    color: #fff; /* Ensure contrast */
+    /* size: 21px; */ /* 'size' is not a valid CSS property, use font-size */
+    font-size: 1rem; /* Example size */
+    text-transform: uppercase;
+    display: inline-flex; /* For aligning checkbox and label nicely */
+    align-items: center;
+    cursor: pointer;
+}
+.checkbox input[type="checkbox"] {
+    margin-right: 8px; /* Space between checkbox and label text */
+    /* Consider custom styling for checkboxes for better appearance */
+}
+
+.checkbox input:focus {
+    box-shadow: none; /* Removes default focus, ensure accessibility with other cues */
+}
+
+.checkbox textarea:focus {
+    box-shadow: none;
+}
+
+.btn-one { /* This class is generic, does it clash with .btn from new styles? */
+    font-size: 21px;
+    font-weight: bolder;
+    color: #fff; /* Ensure this button has a background or it might be invisible */
+    /* Consider adding padding, background-color, border-radius if it's a button */
+}
+
+.btn-one:focus {
+    box-shadow: none;
+}
+
+.bg-min-yellow {
+    background-color: rgb(246, 229, 199);
+    border-radius: 16px;
+}
+
+.bg-community {
+    background-color: rgb(205, 163, 108);
+    padding: 40px;
+    border-radius: 16px;
+}
+
+.comunity-txt h3 {
+    font-size: 21px;
+    color: #500724;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+.comunity-txt p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.community-threat {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.community-threat img {
+    height: 165px;
+    width: 250px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+.threat-details {
+    background-color: rgb(246, 229, 199);
+    border-radius: 16px;
+    padding: 20px 10px;
+    margin-left: 10px;
+    flex-grow: 1; /* Allow it to take remaining space if .community-threat is flex */
+}
+
+.threat-details h3 {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.threat-details p {
+    font-size: 12px;
+    margin-bottom: 0%;
+}
+
+.hindu {
+    display: flex;
+    align-items: flex-start; /* Changed to flex-start */
+}
+
+.hindu-icon img {
+    border-radius: 50%;
+    max-width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 30px;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.hindu h3 { /* Assuming this is a child of .hindu */
+    font-size: 18px;
+    padding-top: 21px; /* Odd padding, review if needed */
+    margin-bottom: 12px;
+    color: #15803D;
+}
+
+.hindu h4 {
+    color: #3f3f46;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.hindu h5 {
+    font-size: 14px;
+    color: #3f3f46;
+}
+
+.hindu-img img {
+    border-radius: 16px;
+    height: 210px;
+    max-width: 250px;
+    object-fit: contain; /* Or cover, depending on image type */
+    margin-left: auto; /* If you want it to align to the right in a flex container */
+}
+
+.bg-onee {
+    background-color: #D6D3D1;
+    padding: 15px;
+}
+
+.bg-onee input {
+    font-size: 18px; /* This styles ALL inputs inside .bg-onee */
+}
+
+.bg-onee label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0%;
+    color: #000000;
+}
+
+.bg-two {
+    background-color: #a8a29e;
+    padding: 15px;
+}
+
+.bg-two input {
+    font-size: 18px;
+}
+
+.bg-two label {
+    font-size: 21px; /* Larger than .bg-onee label */
+    font-weight: 600;
+    margin-bottom: 0%;
+    color: #000000;
+}
+
+.bg-three {
+    background-color: #78716c;
+    padding: 15px;
+}
+
+.bg-three input {
+    font-size: 18px;
+}
+
+.bg-three label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0%;
+    color: #000000;
+}
+
+.bg-four {
+    background-color: #854d0e;
+    padding: 15px;
+}
+
+.bg-four input {
+    font-size: 18px;
+}
+
+.bg-four label {
+    font-size: 16px;
+    font-weight: bolder;
+    margin-bottom: 0%;
+    color: #000000;
+}
+
+.bg-five {
+    background-color: #500724;
+    padding: 15px;
+}
+
+.bg-five input {
+    font-size: 18px;
+}
+
+.bg-five label {
+    color: #fff;
+    font-size: 30px; /* Very large label */
+    font-weight: bolder;
+    margin-bottom: 0%;
+}
+
+.footer-link h5 { /* This seems for a different footer structure than .site-footer-main */
+    font-size: 24px;
+    font-weight: 700;
+    color: #500724;
+    margin-bottom: 10px;
+}
+
+.footer-link ul {
+    list-style: none; /* Good practice */
+    padding-left: 0; /* Remove default padding */
+}
+.footer-link ul li a {
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer-bottom h3 { /* Another footer specific style */
+    color: #000000;
+    font-size: 18px;
+    margin-bottom: 0%;
+    text-align: center;
+}
+
+.footer-bottom h3 a {
+    color: #000000;
+}
+
+.fro-nav { /* "fro" might be a typo for "form-nav" or "from-nav"? Descriptive names help. */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox-sp {
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox-padding{
+    padding-top: 2px;
+}
+
+.ff-three { /* Not descriptive */
+    display: flex;
+}
+.green-bg{
+    background-color: #15803D;
+    border-radius: 16px;
+}
+.silver-bg{
+    background-color: #78716c;
+    border-radius: 16px;
+}
+
+/* ==========================================================================
+   Original Media Queries
+   ========================================================================== */
+
+/* 1680 */
+@media (max-width: 1700px) {
+    .card-imgs img {
+        max-width: 140px;
+        height: 140px;
+    }
+
+    .image-gallery img {
+        height: 260px;
+        /* width: 100%; */ /* Already set globally for img */
+    }
+}
+
+/* 1500 */
+@media (max-width: 1679px) { /* Typo: 1679px, should be 1599px if next is 1440? Or is it overlapping? */
+    .website-main-logo h2 {
+        font-size: 36px;
+        /* font-family: ui-serif; */ /* Already set */
+    }
+
+    .card-design {
+        padding: 15px;
+    }
+
+    .image-gallery img {
+        height: 240px;
+        /* width: 100%; */
+    }
+}
+
+/* 1440 */
+@media (max-width: 1499px) { /* Should be 1439px if using standard breakpoints */
+    .img-gallery-two {
+        max-width: 150px;
+        height: 150px;
+    }
+
+    .donate-icon img {
+        height: 180px;
+        width: 180px;
+    }
+
+    .bg-onee label, /* Grouping these selectors */
+    .bg-two label,
+    .bg-three label,
+    .bg-four label,
+    .bg-five label {
+        font-size: 21px;
+    }
+
+
+    .footer-link h5 {
+        font-size: 21px;
+    }
+
+    .image-gallery img {
+        height: 210px;
+        /* width: 100%; */
+    }
+}
+
+/* 1280 */
+@media (max-width: 1439px) { /* This is fine if 1499px above was intended to be 1440px max-width */
+    .website-main-logo h2 {
+        font-size: 30px;
+        /* font-family: ui-serif; */
+    }
+
+    .website-main-logo img {
+        height: 180px;
+    }
+
+    .image-gallery img {
+        height: 190px;
+    }
+
+    .card-imgs img {
+        max-width: 120px;
+        height: 120px;
+    }
+
+    .card-txt a {
+        padding: 0px 40px; /* This padding is unusual (0 top/bottom), verify */
+        font-size: 14px;
+    }
+
+    .card-txt h3 {
+        font-size: 21px;
+        margin-bottom: 20px;
+    }
+
+    .donate-img img {
+        height: 271px;
+    }
+
+
+    .bg-brown h6 {
+        font-size: 21px;
+    }
+
+    .divine h3 {
+        font-size: 16px;
+    }
+
+    .divine {
+        padding: 14px;
+        margin: 0 8px;
+    }
+
+    .checkbox label {
+        font-size: 14px;
+    }
+
+    .btn-one {
+        font-size: 14px;
+    }
+
+    .bg-community {
+        padding: 26px;
+    }
+
+    .comunity-txt h3 {
+        font-size: 21px;
+    }
+
+    .bg-onee label,
+    .bg-two label,
+    .bg-three label,
+    .bg-four label,
+    .bg-five label {
+        font-size: 16px;
+    }
+}
+
+/* 1025 (often 1024px) */
+@media (max-width: 1279px) {
+    .services-img img {
+        margin-bottom: 10px;
+    }
+
+    .bg-nav.navbar-light .navbar-nav .nav-link {
+        font-size: 17px; /* Consider if this specific nav is still used with new .site-header */
+    }
+
+    .btn.btn-login,
+    .btn.btn-register {
+        font-size: 17px;
+    }
+
+    /* .card-txt a - already styled above */
+
+    .card-design {
+        padding: 20px;
+        /* display: flex; */ /* Already flex */
+        justify-content: space-evenly;
+    }
+
+    .bg-select {
+        padding: 90px 40px; /* Very large padding */
+    }
+
+    .donate-img img {
+        height: 330px;
+    }
+
+    .bg-brown h6 {
+        font-size: 18px;
+    }
+
+    .donate-icon h3 {
+        font-size: 16px;
+    }
+
+    .bg-red {
+        padding: 20px;
+    }
+
+    .bg-red h3 {
+        font-size: 16px;
+    }
+
+    .bg-brown-two h3 {
+        font-size: 21px;
+    }
+
+    .divine h3 {
+        font-size: 14px;
+    }
+
+    .divine a {
+        font-size: 16px;
+    }
+
+    .footer-img img {
+        height: 400px;
+        /* display: flex; */ /* img tag doesn't take flex for its own layout */
+        margin: auto;
+        margin-bottom: 20px;
+    }
+
+    .checkbox {
+        margin-bottom: 20px; /* Container for checkboxes */
+    }
+
+    .community-threat img {
+        width: 220px;
+    }
+
+    .bg-onee label,
+    .bg-two label,
+    .bg-three label,
+    .bg-four label,
+    .bg-five label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .bg-onee input, /* These rules apply to all inputs within these wrappers */
+    .bg-two input,
+    .bg-three input,
+    .bg-four input,
+    .bg-five input {
+        margin-top: 0%; /* Default is 0 anyway unless other styles apply */
+    }
+
+    .footer-link h5 {
+        font-size: 21px;
+    }
+
+    .footer-link ul li a {
+        font-size: 14px;
+    }
+}
+
+/* 992 (often 991px for end of medium devices) */
+@media (max-width: 1024px) {
+    /* Styles specific to this breakpoint, e.g., tablet portrait */
+    /* The mobile nav toggle in new CSS activates at 991px, this is slightly larger */
+}
+
+/* 768 (often 767px for end of small devices/tablets) */
+@media (max-width: 991px) {
+    /* This overlaps with new mobile nav. Original styles here might affect it. */
+    .website-main-logo img {
+        height: 160px;
+    }
+
+    .website-main-logo h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .fro-nav {
+        align-items: flex-start; /* Changed from center */
+        margin-top: 10px;
+    }
+
+    .bg-nav.navbar-light .navbar-nav .nav-link {
+        font-size: 16px;
+    }
+
+    .bg-nav.navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .show>.nav-link {
+        border-radius: 3px;
+    }
+
+    .btn.btn-login,
+    .btn.btn-register {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    .text-temple {
+        padding: 30px;
+    }
+
+    .text-temple h4 {
+        font-size: 16px;
+    }
+
+    .text-temple h3 {
+        font-size: 18px;
+    }
+
+    .second-card-to {
+        padding: 20px;
+    }
+
+    .calendar .days {
+        gap: 6px;
+    }
+
+    .bg-red {
+        height: -webkit-fill-available; /* Consider alternatives */
+    }
+
+    .donate-icon img {
+        height: 140px;
+        width: 140px;
+    }
+
+    .donate-icon h3 {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .donate-img img {
+        height: 275px;
+    }
+
+    .bg-brown h6 {
+        font-size: 16px;
+    }
+
+    .bg-brown-two h3 {
+        font-size: 16px;
+        padding: 20px;
+        margin-bottom: 0% !important;
+    }
+
+    .bg-brown-two {
+        margin-bottom: 14px;
+    }
+
+    .divine a {
+        font-size: 16px;
+        padding: 0%; /* No padding */
+    }
+
+    .footer-img img {
+        height: 340px;
+    }
+
+    /* .checkbox label - already styled */
+
+    .hindu h3 {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .hindu h5 {
+        font-size: 14px;
+    }
+
+    .hindu-img img {
+        border-radius: 16px;
+        height: -webkit-fill-available;
+        max-width: 200px;
+    }
+
+    .checkbox-sp {
+        flex-direction: column;
+    }
+
+    .checkbox-sp .form-check { /* Bootstrap class, ensure you're using Bootstrap if this is intended */
+        margin-bottom: 10px;
+    }
+}
+
+/* 576 (often 575px for end of extra-small devices) */
+@media (max-width: 767px) {
+    .website-main-logo img {
+        height: 120px;
+    }
+
+    .website-main-logo h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .box-design-for-muharat img {
+        max-width: 80px;
+        height: 80px;
+    }
+
+    .box-design-for-muharat h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .box-design-for-muharat p {
+        font-size: 16px;
+    }
+
+    .box-design-for-muharat {
+        height: 220px;
+        width: 200px;
+        position: static; /* Consider if absolute positioning is needed on small screens */
+        margin-bottom: 20px; /* If static, add margin */
+    }
+
+    .image-gallery {
+        flex-direction: row;
+        /* height: 190px; */ /* Let content dictate height or use auto */
+        width: 100%;
+        justify-content: space-around; /* Or space-between */
+        margin-bottom: 10px;
+        flex-wrap: wrap; /* Allow wrapping if images are too wide */
+    }
+
+    .image-gallery img {
+        height: 190px;
+        max-width: 180px !important; /* !important suggests override issues */
+        flex-basis: calc(50% - 10px); /* Example for 2 images per row */
+        margin-bottom: 10px;
+    }
+
+    .services-img {
+        flex-direction: column; /* Stack image and text */
+        align-items: center;
+    }
+    .services-img img {
+        /* height: 150px; */ /* auto height based on width */
+        max-width: 150px;
+        margin-right: 0; /* Reset margin */
+        margin-bottom: 10px; /* Space below image */
+        border-radius: 10px;
+    }
+
+    .bg-astrological {
+        padding: 20px 10px;
+    }
+
+    .bg-astrological h3 {
+        font-size: 1.2rem; /* Increased for readability */
+        margin-bottom: 10px; /* Added margin */
+    }
+
+    .bg-astrological h4 {
+        font-size: 1rem;
+    }
+
+    .bg-astrological p {
+        margin-bottom: 10px;
+    }
+
+    .bg-temple img {
+        height: 35vh !important; /* vh units can be tricky, test thoroughly */
+        position: relative; /* If it's just a background decoration */
+        width: 100%;
+        object-fit: cover;
+    }
+    .bg-temple {
+        display: flex; /* To manage content over bg image */
+        flex-direction: column;
+    }
+
+    .tt-text h5 {
+        font-size: 12px;
+        margin: 30px 0; /* Reduced margin */
+    }
+
+    .card-design {
+        flex-direction: column; /* Stack elements */
+        text-align: center;
+    }
+    .card-txt h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .card-txt a {
+        padding: 10px 25px; /* More balanced padding */
+        font-size: 14px;
+        display: inline-block; /* For button like behavior */
+        width: auto; /* Not full width */
+    }
+    .card-imgs {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .card-imgs img {
+        max-width: 90px;
+        height: 90px;
+    }
+
+    .second-card-to img {
+        /* height: -webkit-fill-available; */
+        bottom: 0% !important;
+        height: 46vh !important;
+        top: auto;
+        position: relative; /* Or hide on small screens if too complex */
+        display: block;
+        margin: 20px auto 0;
+    }
+    .second-card-to {
+        text-align: center;
+    }
+
+    .calendar {
+        width: 100%; /* Full width on small screens */
+        max-width: 300px; /* Max width for calendar itself */
+        margin: 0 auto; /* Center it */
+        padding: 10px;
+    }
+
+    .calendar .days {
+        gap: 2px; /* Reduced gap */
+    }
+    .calendar .day {
+        padding: 8px 0;
+    }
+
+    .second-card-to h5 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .bg-select {
+        padding: 20px;
+    }
+    .bg-select h3 {
+        font-size: 16px;
+        text-align: left; /* Or center */
+    }
+
+    .bg-select select,
+    .bg-select input {
+        font-size: 14px;
+        width: 100%; /* Make selects/inputs full width */
+        margin-bottom: 10px;
+    }
+
+    .book-btn {
+        padding: 10px 20px; /* Adjusted padding */
+        border-radius: var(--border-radius); /* Use variable */
+        font-size: 1rem;
+        display: block; /* Full width button */
+        width: 100%;
+        max-width: 250px;
+        margin: 10px auto 0;
+    }
+
+    .bg-red img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .bg-red h3 {
+        font-size: 16px; /* Consistent with other h3s at this size */
+    }
+
+    .donate-img img {
+        height: auto; /* Let width control height to maintain aspect ratio */
+        max-width: 210px; /* Keep it constrained */
+        margin: 0 auto 20px; /* Center and add bottom margin */
+    }
+
+    .donate-icon img {
+        height: 100px;
+        width: 100px;
+    }
+
+    /* .bg-red h3 - already styled */
+
+    .bg-brown h6 {
+        font-size: 14px;
+    }
+
+    .bg-brown-two h3 {
+        font-size: 14px;
+        padding: 14px;
+        margin-bottom: 20px !important; /* Reduced margin */
+    }
+
+    .bg-brown-two {
+        padding-bottom: 30px; /* Significantly reduced */
+    }
+
+    .divine h3 {
+        font-size: 14px;
+    }
+
+    .divine a {
+        font-size: 14px;
+        /* padding: 0%; */
+    }
+
+    .heading_label label {
+        font-size: 18px;
+        margin-bottom: 10px; /* Add some space */
+    }
+
+    .checkbox label {
+        font-size: 12px;
+    }
+
+    .btn-one {
+        font-size: 16px;
+        padding: 10px 15px; /* Add padding if it's a button */
+        display: block;
+        text-align: center;
+        /* background-color: var(--accent-color); */ /* Example if it's a button */
+        /* color: var(--primary-color); */
+    }
+
+    .comunity-txt h3 {
+        font-size: 16px;
+    }
+
+    .community-threat {
+        flex-direction: column; /* Stack image and text */
+    }
+    .community-threat img {
+        width: 100%; /* Full width image */
+        max-width: 275px; /* Max width */
+        height: auto;
+        margin: 0 auto 15px; /* Center and add bottom margin */
+    }
+    .threat-details {
+        margin-left: 0; /* Reset margin */
+        padding: 15px;
+    }
+
+    .threat-details h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .comunity-txt {
+        margin-top: 16px;
+    }
+
+    .hindu {
+        flex-direction: column; /* Stack elements */
+        align-items: center;
+        text-align: center;
+    }
+    .hindu-icon img {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .hindu h3 {
+        font-size: 1rem; /* Standardized */
+        padding-top: 0; /* Reset */
+    }
+
+    .hindu h4 {
+        font-size: 0.9rem;
+    }
+
+    .hindu h5 {
+        font-size: 0.85rem;
+    }
+    .hindu-img {
+        margin-top: 15px;
+    }
+    .hindu-img img {
+        margin: 0 auto; /* Center image if it's in its own block */
+    }
+
+    .footer-link h5 {
+        font-size: 16px;
+    }
+
+    .footer-link ul li a {
+        font-size: 14px;
+    }
+
+    .footer-bottom h3 {
+        font-size: 16px;
+    }
+}
+
+/* 525 (Adjusting from 575px to 524px for more granular control) */
+@media (max-width: 575px) { /* This combines with previous 767px if ranges overlap */
+    .image-gallery img {
+        height: 140px;
+        max-width: 140px !important;
+        flex-basis: calc(50% - 5px); /* Tighter spacing for 2-up */
+    }
+    .maptwo_imagehide{ /* Assuming this class hides an element */
+        display: none;
+    }
+
+    .bg-temple img {
+        height: 26vh !important;
+    }
+
+    .second-card-to img {
+        height: 35vh !important;
+    }
+
+    .bg-select img {
+        /* height: 65vh; */ /* This can make section very tall */
+        display: none; /* Often better to hide complex bg images on small screens */
+    }
+
+    .btn-one {
+        font-size: 1rem; /* Standardized */
+        padding: 12px 20px; /* Standardized */
+    }
+
+    /* .comunity-txt - already handled */
+
+    .community-threat img {
+        /* width: 250px; */ /* Let it be 100% of container up to max-width */
+        height: auto;
+    }
+
+    .hindu-img img {
+        max-width: 150px;
+    }
+
+    .hindu-icon img {
+        max-width: 80px;
+        height: 80px;
+    }
+}
+
+/* 480 (Adjusting to 479px) */
+@media (max-width: 524px) { /* Combining with 480 styles */
+    .website-main-logo h2 {
+        font-size: 18px;
+    }
+
+    .website-main-logo img {
+        height: 90px;
+    }
+
+    .navbar-toggler { /* Bootstrap class, ensure it's used in your HTML */
+        font-size: 0.95rem;
+    }
+
+    .text-temple {
+        padding: 20px 10px; /* Reduced padding */
+    }
+
+    .text-temple h3 {
+        font-size: 1rem;
+    }
+
+    .text-temple h4 {
+        font-size: 0.9rem;
+    }
+
+    .ff-three { /* Not descriptive */
+        flex-direction: column;
+    }
+
+    .tt-text h5 {
+        font-size: 10px;
+        margin: 25px 0; /* Reduced */
+    }
+
+    .bg-temple img {
+        height: 20vh !important;
+    }
+
+    .checkbox { /* Container for checkboxes */
+        /* margin-bottom: 20px; */ /* Already set */
+        /* flex-direction: column; */ /* No, usually inline or inline-block */
+    }
+    .checkbox label {
+        display: block; /* Stack labels if multiple checkboxes are direct children of .checkbox */
+        margin-bottom: 10px;
+    }
+
+
+    .btn-one { /* This has been styled multiple times, ensure consistency */
+        font-size: 0.9rem;
+        padding: 10px 15px;
+        background: var(--accent-color); /* Added for visibility */
+        color: var(--primary-color);
+    }
+}
+
+/* 425 (Adjusting to 424px) */
+@media (max-width: 479px) {
+    .box-design-for-muharat img {
+        max-width: 50px;
+        height: 50px;
+    }
+
+    .box-design-for-muharat {
+        height: auto; /* Auto height */
+        width: 100%; /* Full width */
+        padding: 15px;
+    }
+
+    .image-gallery img {
+        height: 120px;
+        max-width: 120px !important;
+        flex-basis: 100%; /* Stack images */
+    }
+
+    .img-gallery-two {
+        max-width: 110px;
+        height: 100px;
+        margin: 0 auto 10px; /* Center if stacked */
+    }
+
+    .bg-astrological h3 {
+        font-size: 1rem; /* Consistent */
+        /* margin-bottom: 0%; */ /* Default h3 has margin */
+    }
+
+    .second-card-to img {
+        display: none; /* Hide complex image */
+    }
+
+    .bg-select img{
+        display: none;
+    }
+    .bg-red {
+        height: fit-content; /* Or auto */
+        padding: 20px;
+    }
+    .btn-one {
+        /* font-size: 12px; */ /* Already set to 0.9rem */
+        /* padding: 10px; */
+        /* background: #fdba74; */
+        margin: 0 5px 10px; /* Add bottom margin if stacking */
+    }
+    .community-threat img {
+        /* width: 250px; */ /* Using 100% and max-width from above */
+        height: auto; /* Changed from 90px */
+    }
+}
+
+/* 375 (No changes from original, review if specific styles needed) */
+@media (max-width: 424px) {}
+
+/* 320 (No changes from original, review if specific styles needed) */
+@media (max-width: 374px) {}
+
+/* 280 (No changes from original, review if specific styles needed) */
+@media (max-width: 319px) {}

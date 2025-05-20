@@ -13,8 +13,9 @@ db.sqlite3
 *.log
 local_settings.py
 media/
-staticfiles/
-static/
+# staticfiles/
+# static/
+admin-lte/
 
 # If you use migrations (you might want to track them though)
 */migrations/*.pyc
