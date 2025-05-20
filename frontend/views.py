@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from django.db.models import Sum, Count
 from datetime import datetime, timedelta
 from django.http import JsonResponse
@@ -34,6 +36,20 @@ def home_view(request):
         'events': events
     }
     return render(request, 'frontend/pages/index.html', context)
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')  # or wherever you want to send them
+        else:
+            messages.error(request, "Invalid username or password.")
+
+    return render(request, 'frontend/pages/login.html')
 
 @login_required
 @user_passes_test(lambda u: u.is_staff)
