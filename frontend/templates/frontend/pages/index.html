@@ -1,595 +1,426 @@
+{% extends 'frontend/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>India Temples and Spirituality</title>
-    <link rel="icon" href="{% static 'frontend/assets/images/shreeganeshji.png' %}" />
-    <!-- Favicon -->
-    <link href="./assets/image/favicon.svg" rel="shortcut icon" type="image/x-icon" />
-    <link href="./assets/image/favicon.svg" rel="apple-touch-icon" />
-
-    <!-- Bootsatrep -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
-    <!-- Font Awsome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
-
-    <!-- owl Carousel css -->
-    <link rel="stylesheet"
-        href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css" />
-    <link rel="stylesheet"
-        href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css" />
-    <!-- Special animation  -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Style Css -->
-    <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
-    <link rel="stylesheet" href="{% static 'frontend/assets/css/style.css' %}" />
-</head>
-
-
-<body class="darsanam-bgpng">
-    <!-- <nav class="navbar-expand-lg"> -->
-
-    <div class="container">
-        <div class="border-fristsection">
-            <img src="{% static 'frontend/assets/images/borderfirstsection.png' %}" alt="border-first-section">
-        </div>
-        <div class="website-firstbg">
-            <div class="container-fluid px-0">
-                <div class="row py-30 align-items-center justify-content-between">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                        <div class="website-main-logo">
-                            <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}"
-                                alt="darshan website main logo">
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-                        <div class="website-main-logo justify-content-center">
-                            <h2 class="text-center">In Indian Temples and Spiritually Website</h2>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
-                        <div class="website-main-logo justify-content-end">
-                            <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}"
-                                alt="darshan website main logo">
-                        </div>
-                    </div>
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12">
+            <div class="location-for-site">
+                <div class="box-design-for-muharat">
+                    <img src="{% static 'frontend/assets/images/shreeganeshji.png' %}" class="img-fluid">
+                    <h3>Daily Muharat</h3>
+                    <p>have suffered alteration in have suffered</p>
                 </div>
-
-
-                <!-- Navbar design start -->
-                <nav class="navbar navbar-expand-lg navbar-light bg-nav mt-3 mt-sm-0">
-                    <div class="container-fluid">
-                        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav w-100 fro-nav  mb-2 mb-lg-0 ">
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">Telugu</a>
-                                </li> -->
-                                <li class="nav-item">
-                                    <div class="language-selector">
-    <form action="{% url 'set_language' %}" method="post">
-        {% csrf_token %}
-        <input name="next" type="hidden" value="{{ request.path }}">
-        <select name="language" class="form-select" onchange="this.form.submit()">
-            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
-            <option value="hi" {% if LANGUAGE_CODE == 'hi' %}selected{% endif %}>हिंदी</option>
-            <option value="ta" {% if LANGUAGE_CODE == 'ta' %}selected{% endif %}>தமிழ்</option>
-            <option value="te" {% if LANGUAGE_CODE == 'te' %}selected{% endif %}>తెలుగు</option>
-            <option value="kn" {% if LANGUAGE_CODE == 'kn' %}selected{% endif %}>ಕನ್ನಡ</option>
-            <option value="ml" {% if LANGUAGE_CODE == 'ml' %}selected{% endif %}>മലയാളം</option>
-            <option value="gu" {% if LANGUAGE_CODE == 'gu' %}selected{% endif %}>ગુજરાતી</option>
-            <option value="as" {% if LANGUAGE_CODE == 'as' %}selected{% endif %}>অসমীয়া</option>
-            <option value="mr" {% if LANGUAGE_CODE == 'mr' %}selected{% endif %}>मराठी</option>
-        </select>
-    </form>
-</div>
-
-                                </li>
-
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">fasting days</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">this week</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " aria-current="page" href="#">good & progress</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">deekshas</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">festivals</a>
-                                </li>
-                                <li>
-                                    <form class="d-flex">
-                                        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-                                        <!-- <button class="btn btn-login" type="submit">LOG-IN</button>
-                                        <button class="btn btn-register" type="submit">REGISTER</button> -->
-                                        <a class="btn btn-login" href="{% url 'user_login' %}">LOG-IN</a>
-                                        <a class="btn btn-register" href="{% url 'user_register' %}">REGISTER</a>
-
-                                    </form>
-
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4908.151447054534!2d103.8174977758167!3d1.2643742618428675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1be268750ce5%3A0x6369471795110bc1!2sHarbourFront%20Centre!5e1!3m2!1sen!2sin!4v1745300227507!5m2!1sen!2sin"
+                    width="100%" height="800" style="border-radius:14px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <!-- Navbar design end-->
+        </div>
+        <div class="col-xl-2 col-lg-6 col-md-6 col-12">
+            <div class="image-gallery">
 
-            <!-- Location section design start -->
-            <div class="bg-first-section py-30">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-5 col-lg-6 col-md-6 col-sm-12">
-                            <div class="location-for-site">
-                                <div class="box-design-for-muharat">
-                                    <img src="{% static 'frontend/assets/images/shreeganeshji.png' %}"
-                                        class="img-fluid">
-                                    <h3>Daily Muharat</h3>
-                                    <p>have suffered alteration in have suffered</p>
-                                </div>
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4908.151447054534!2d103.8174977758167!3d1.2643742618428675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1be268750ce5%3A0x6369471795110bc1!2sHarbourFront%20Centre!5e1!3m2!1sen!2sin!4v1745300227507!5m2!1sen!2sin"
-                                    width="100%" height="800" style="border-radius:14px;" allowfullscreen=""
-                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
+                <div>
+                    <img src="{% static 'frontend/assets/images/mapone.png' %}" class="img-fluid mb-3">
+                </div>
+                <div class="maptwo_imagehide">
+                    <img src="{% static 'frontend/assets/images/maptwo.png' %}" class="img-fluid mb-3">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-5 col-lg-12 col-md-12 col-12">
+            <div class="bg-astrological">
+                <h3>Astrological Services</h3>
+                <hr>
+                <div class="services-img">
+                    <div class="d-flex align-items-center mb-4">
+                        <div>
+                            <img src="{% static 'frontend/assets/images/assone.png' %}" class="img-fluid">
                         </div>
-                        <div class="col-xl-2 col-lg-6 col-md-6 col-12">
-                            <div class="image-gallery">
-                                
-                                <div>
-                                    <img src="{% static 'frontend/assets/images/mapone.png' %}" class="img-fluid mb-3">
-                                </div>
-                                <div class="maptwo_imagehide">
-                                    <img src="{% static 'frontend/assets/images/maptwo.png' %}" class="img-fluid mb-3">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-12 col-md-12 col-12">
-                            <div class="bg-astrological">
-                                <h3>Astrological Services</h3>
-                                <hr>
-                                <div class="services-img">
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div>
-                                            <img src="{% static 'frontend/assets/images/assone.png' %}"
-                                                class="img-fluid">
-                                        </div>
-                                        <div>
-                                            <h4>Ramanathaswamy Temple (Tamil Nadu)</h4>
-                                            <p class="m-0"> Located in Rameswaram, this is one of the twelve
-                                                Jyotirlingas of Lord Shiva.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="services-img">
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div>
-                                            <img src="{% static 'frontend/assets/images/asstwo.png' %}"
-                                                class="img-fluid">
-                                        </div>
-                                        <div>
-                                            <h4>Somnath Temple (Gujarat)</h4>
-                                            <p class="m-0"> One of the twelve Jyotirlingas of Lord Shiva, Somnath is
-                                                known as the "Eternal Shrine."</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="services-img">
-                                    <div class="d-flex align-items-center mb-4">
-                                        <div>
-                                            <img src="{% static 'frontend/assets/images/assthree.png' %}"
-                                                class="img-fluid">
-                                        </div>
-                                        <div>
-                                            <h4>Tirupati Balaji Temple (Andhra Pradesh)</h4>
-                                            <p class="m-0"> One of the wealthiest and most visited temples in the world,
-                                                dedicated to Lord Venkateswara (Balaji).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="d-flex justify-content-between">
-                                    <div class="img-gallery-two green-bg">
-                                        <img src="{% static 'frontend/assets/images/temone.png' %}" class="img-fluid">
-                                        <h3>Virupaksha Temple</h3>
-                                    </div>
-                                    <div class="img-gallery-two silver-bg ms-2">
-                                        <img src="{% static 'frontend/assets/images/temptwo.png' %}" class="img-fluid">
-                                        <h3>Jagannath Temple</h3>
-                                    </div>
-                                    <div class="img-gallery-two">
-                                        <img src="{% static 'frontend/assets/images/temthree.png' %}" class="img-fluid">
-                                        <h3>Kedarnath Temple</h3>
-                                    </div>
-                                    <!-- <img src="./assets/images/websitefirstbg.png" class="img-fluid"> -->
-                                    <!-- <img src="./assets/images/websitefirstbg.png" class="img-fluid"> -->
-                                </div>
-                            </div>
+                        <div>
+                            <h4>Ramanathaswamy Temple (Tamil Nadu)</h4>
+                            <p class="m-0"> Located in Rameswaram, this is one of the twelve
+                                Jyotirlingas of Lord Shiva.</p>
                         </div>
                     </div>
                 </div>
-                <div class="py-30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-8  col-12 mb-3">
-                                <div class="bg-temple">
-                                    <div class="d-flex ">
-                                        <div>
-                                            <div class="text-temple">
-                                                <div class="ff-three">
-                                                    <div>
-                                                        <h3>The 3 debts <br> in a mans life...</h3>
-                                                    </div>
-                                                    <div class="border-left">
-                                                        <h4>- Debt toc God</h4>
-                                                        <h4>- debt to saints and sages</h4>
-                                                        <h4>- debt to ancestors</h4>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tt-text">
-                                                <h5>Tample architechture</h5>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <img src="{% static 'frontend/assets/images/temple.png' %}"
-                                                class="img-fluid h-100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4  col-12">
-                                <div class="card-design mb-4">
-                                    <div class="card-imgs">
-                                        <img src="{% static 'frontend/assets/images/dateone.png' %}" class="img-fluid">
-                                    </div>
-                                    <div class="card-txt">
-                                        <h3>Sept 20-22</h3>
-                                        <a class="btn " href="#">More</a>
-                                    </div>
-                                </div>
-                                <div class="card-design second-card">
-                                    <div class="card-imgs">
-                                        <img src="{% static 'frontend/assets/images/datetwo.png' %}" class="img-fluid">
-                                    </div>
-                                    <div class="card-txt">
-                                        <h3>Sept 20-22</h3>
-                                        <a class="btn " href="#">More</a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="services-img">
+                    <div class="d-flex align-items-center mb-4">
+                        <div>
+                            <img src="{% static 'frontend/assets/images/asstwo.png' %}" class="img-fluid">
+                        </div>
+                        <div>
+                            <h4>Somnath Temple (Gujarat)</h4>
+                            <p class="m-0"> One of the twelve Jyotirlingas of Lord Shiva, Somnath is
+                                known as the "Eternal Shrine."</p>
                         </div>
                     </div>
                 </div>
-                <div class="">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-7 col-12 mb-3">
-                                <div class="second-card-to">
-                                    <div class="calendar">
-                                        <h5>Hindu Calendar</h5>
-                                        <div class="days">
-                                            <div class="day-name">Sun</div>
-                                            <div class="day-name">Mon</div>
-                                            <div class="day-name">Tue</div>
-                                            <div class="day-name">Wed</div>
-                                            <div class="day-name">Thu</div>
-                                            <div class="day-name">Fri</div>
-                                            <div class="day-name">Sat</div>
-
-                                            <div></div>
-                                            <div></div>
-                                            <div class="day">1</div>
-                                            <div class="day">2</div>
-                                            <div class="day">3</div>
-                                            <div class="day">4</div>
-                                            <div class="day">5</div>
-
-                                            <div class="day">6</div>
-                                            <div class="day">7</div>
-                                            <div class="day">8</div>
-                                            <div class="day">9</div>
-                                            <div class="day">10</div>
-                                            <div class="day">11</div>
-                                            <div class="day">12</div>
-
-                                            <div class="day">13</div>
-                                            <div class="day">14</div>
-                                            <div class="day">15</div>
-                                            <div class="day">16</div>
-                                            <div class="day">17</div>
-                                            <div class="day">18</div>
-                                            <div class="day">19</div>
-
-                                            <div class="day">20</div>
-                                            <div class="day">21</div>
-                                            <div class="day">22</div>
-                                            <div class="day">23</div>
-                                            <div class="day">24</div>
-                                            <div class="day">25</div>
-                                            <div class="day">26</div>
-
-                                            <div class="day">27</div>
-                                            <div class="day">28</div>
-                                            <div class="day">29</div>
-                                            <div class="day">30</div>
-                                        </div>
-                                    </div>
+                <div class="services-img">
+                    <div class="d-flex align-items-center mb-4">
+                        <div>
+                            <img src="{% static 'frontend/assets/images/assthree.png' %}" class="img-fluid">
+                        </div>
+                        <div>
+                            <h4>Tirupati Balaji Temple (Andhra Pradesh)</h4>
+                            <p class="m-0"> One of the wealthiest and most visited temples in the world,
+                                dedicated to Lord Venkateswara (Balaji).</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <div class="img-gallery-two green-bg">
+                        <img src="{% static 'frontend/assets/images/temone.png' %}" class="img-fluid">
+                        <h3>Virupaksha Temple</h3>
+                    </div>
+                    <div class="img-gallery-two silver-bg ms-2">
+                        <img src="{% static 'frontend/assets/images/temptwo.png' %}" class="img-fluid">
+                        <h3>Jagannath Temple</h3>
+                    </div>
+                    <div class="img-gallery-two">
+                        <img src="{% static 'frontend/assets/images/temthree.png' %}" class="img-fluid">
+                        <h3>Kedarnath Temple</h3>
+                    </div>
+                    <!-- <img src="./assets/images/websitefirstbg.png" class="img-fluid"> -->
+                    <!-- <img src="./assets/images/websitefirstbg.png" class="img-fluid"> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-8  col-12 mb-3">
+                <div class="bg-temple">
+                    <div class="d-flex ">
+                        <div>
+                            <div class="text-temple">
+                                <div class="ff-three">
                                     <div>
-                                        <img src="{% static 'frontend/assets/images/mataji.png' %}" class="img-fluid"
-                                            alt="f">
+                                        <h3>The 3 debts <br> in a mans life...</h3>
                                     </div>
-                                </div>
-                                <div class="col-lg-5">
-
-                                </div>
-                            </div>
-                            <div class="col-xl-5 col-12">
-                                <div class="bg-select">
-                                    <div>
-                                        <h3>BOOK A POOJA</h3>
-                                    </div>
-                                    <div>
-                                        <select class="form-select w-70" aria-label="Default select example">
-                                            <option selected>Select Temple</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-                                        <div class="mb-3 w-70">
-                                            <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
-                                            <input type="date" class="form-control" id="exampleFormControlInput1">
-                                        </div>
-                                        <a class="btn book-btn" href="#">BOOK NOW</a>
-                                    </div>
-                                    <div>
-                                        <img src="{% static 'frontend/assets/images/selecttemple.png' %}"
-                                            class="img-fluid">
+                                    <div class="border-left">
+                                        <h4>- Debt toc God</h4>
+                                        <h4>- debt to saints and sages</h4>
+                                        <h4>- debt to ancestors</h4>
                                     </div>
                                 </div>
                             </div>
+                            <div class="tt-text">
+                                <h5>Tample architechture</h5>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="{% static 'frontend/assets/images/temple.png' %}" class="img-fluid h-100">
                         </div>
                     </div>
                 </div>
-                <div class="py-30 pb-0">
-                    <div class="container-fluid">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-4 col-md-6 col-12 mb-3">
-                                <div class="bg-red mb-3 d-flex align-items-center">
-                                    <div class="w-100">
-                                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}"
-                                            class="img-fluid">
-                                        <h3>Rare temples (303)</h3>
-                                    </div>
-                                </div>
-                                <div class="bg-red sss mb-3 d-flex align-items-center">
-                                    <div class="w-100">
-                                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}"
-                                            class="img-fluid">
-                                        <h3>Save a temples (6)</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 mb-3">
-                                <div class="bg-brown h-100">
-                                    <div class="donate-img">
-                                        <img src="{% static 'frontend/assets/images/rate.png' %}"
-                                            class="img-fluid mb-4">
-                                    </div>
-                                    <div class="donate-icon mt-md-5">
-                                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}"
-                                            class="img-fluid mt-4">
-                                        <h3>Donate (06)</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-12 mb-3">
-                                <div class="bg-red sss mb-3 d-flex align-items-center">
-                                    <div class="w-100">
-                                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}"
-                                            class="img-fluid ">
-                                        <h3>Amazing temples (63)</h3>
-                                    </div>
-                                </div>
-                                <div class="bg-red mb-3 d-flex align-items-center">
-                                    <div class="w-100">
-                                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}"
-                                            class="img-fluid">
-                                        <h3>Form a trust (303)</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-xl-4  col-12">
+                <div class="card-design mb-4">
+                    <div class="card-imgs">
+                        <img src="{% static 'frontend/assets/images/dateone.png' %}" class="img-fluid">
+                    </div>
+                    <div class="card-txt">
+                        <h3>Sept 20-22</h3>
+                        <a class="btn " href="#">More</a>
                     </div>
                 </div>
-                <div class="py-30 pb-0">
-                    <div class="bg-brown">
-                        <div class="container fluid">
-                            <h6>INDIA'S FIRST PORTAL DEDICATED TO DIVINE TRAVEL & WOKSHIP</h6>
-                        </div>
+                <div class="card-design second-card">
+                    <div class="card-imgs">
+                        <img src="{% static 'frontend/assets/images/datetwo.png' %}" class="img-fluid">
+                    </div>
+                    <div class="card-txt">
+                        <h3>Sept 20-22</h3>
+                        <a class="btn " href="#">More</a>
                     </div>
                 </div>
-                <div class="py-30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="bg-brown-two ">
-                                    <h3>Divine Store</h3>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="d-flex mb-4">
-                                    <div class="divine">
-                                        <img src="{% static 'frontend/assets/images/sarsvati.png' %}" class="img-fluid">
-                                        <h3>SARASWATHI YAGAM RAJAHMUNDRY <br> JAN 11-20TH</h3>
-                                    </div>
-                                    <div class="divine me-0">
-                                        <img src="{% static 'frontend/assets/images/om.png' %}" class="img-fluid">
-                                        <h3>SARASWATHI YAGAM RAJAHMUNDRY <br> JAN 11-20TH</h3>
-                                    </div>
-                                </div>
-                                <div class="divine me-0 d-flex m-auto justify-content-center">
-                                    <a href="#" class="btn">BOOK MY HOMAN</a>
-                                </div>
-                            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-7 col-12 mb-3">
+                <div class="second-card-to">
+                    <div class="calendar">
+                        <h5>Hindu Calendar</h5>
+                        <div class="days">
+                            <div class="day-name">Sun</div>
+                            <div class="day-name">Mon</div>
+                            <div class="day-name">Tue</div>
+                            <div class="day-name">Wed</div>
+                            <div class="day-name">Thu</div>
+                            <div class="day-name">Fri</div>
+                            <div class="day-name">Sat</div>
+
+                            <div></div>
+                            <div></div>
+                            <div class="day">1</div>
+                            <div class="day">2</div>
+                            <div class="day">3</div>
+                            <div class="day">4</div>
+                            <div class="day">5</div>
+
+                            <div class="day">6</div>
+                            <div class="day">7</div>
+                            <div class="day">8</div>
+                            <div class="day">9</div>
+                            <div class="day">10</div>
+                            <div class="day">11</div>
+                            <div class="day">12</div>
+
+                            <div class="day">13</div>
+                            <div class="day">14</div>
+                            <div class="day">15</div>
+                            <div class="day">16</div>
+                            <div class="day">17</div>
+                            <div class="day">18</div>
+                            <div class="day">19</div>
+
+                            <div class="day">20</div>
+                            <div class="day">21</div>
+                            <div class="day">22</div>
+                            <div class="day">23</div>
+                            <div class="day">24</div>
+                            <div class="day">25</div>
+                            <div class="day">26</div>
+
+                            <div class="day">27</div>
+                            <div class="day">28</div>
+                            <div class="day">29</div>
+                            <div class="day">30</div>
                         </div>
                     </div>
+                    <div>
+                        <img src="{% static 'frontend/assets/images/mataji.png' %}" class="img-fluid" alt="f">
+                    </div>
                 </div>
-                <div class="py-30 pt-0">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-6 col-12">
-                                <div class="footer-img h-100">
-                                    <img src="{% static 'frontend/assets/images/footer.png' %}" class="img-fluid">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-12">
-                                <div class="bg-brown">
-                                    <div class="heading_label mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">SELECT YOUR
-                                            ISSUE</label>
-                                        <!-- <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"> -->
-                                    </div>
-                                    <div class="d-flex checkbox">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Problem
-                                            </label>
-                                        </div>
-                                        <div class="form-check ms-md-4">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                Pooja
-                                            </label>
-                                        </div>
-                                        <div class="form-check ms-md-4">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                Temple Search
-                                            </label>
-                                        </div>
-                                        <div class="form-check ms-md-4">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                More
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <dvi class="d-flex checkbox">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Tamples/Pligrim
-                                            </label>
-                                        </div>
-                                        <div class="form-check ms-md-4">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked"
-                                                style="white-space: nowrap;">
-                                                Spiritual garus
-                                            </label>
-                                        </div>
-                                    </dvi>
-                                    <dvi class="d-flex checkbox">
+                <div class="col-lg-5">
 
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked"
-                                                style="white-space: nowrap;">
-                                                Ashram Search
-                                            </label>
-                                        </div>
-                                        <div class="form-check ms-md-4">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked"
-                                                style="white-space: nowrap;">
-                                                Checked checkbox
-                                            </label>
-                                        </div>
-
-                                    </dvi>
-                                    <div class="mb-3 checkbox w-100">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Your Name</label>
-                                        <input class="form-control" id="exampleFormControlTextarea1"
-                                            type="text"></input>
-                                    </div>
-                                    <div class="mb-3 checkbox w-100">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Email ID</label>
-                                        <input class="form-control" id="exampleFormControlTextarea1"
-                                            type="email"></input>
-                                    </div>
-                                    <div class="mb-3 checkbox w-100">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1"
-                                            rows="3"></textarea>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <a class="btn btn-one" href="#">TEMPLE FESTIVALS</a>
-                                        <a class="btn btn-one" href="#">RITUALS [TELUGU]</a>
-                                        <a class="btn btn-one" href="#">GENERAL FESTIVALS</a>
-
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div class="col-xl-5 col-12">
+                <div class="bg-select">
+                    <div>
+                        <h3>BOOK A POOJA</h3>
+                    </div>
+                    <div>
+                        <select class="form-select w-70" aria-label="Default select example">
+                            <option selected>Select Temple</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <div class="mb-3 w-70">
+                            <!-- <label for="exampleFormControlInput1" class="form-label">Email address</label> -->
+                            <input type="date" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <a class="btn book-btn" href="#">BOOK NOW</a>
+                    </div>
+                    <div>
+                        <img src="{% static 'frontend/assets/images/selecttemple.png' %}" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-30 pb-0">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-12 mb-3">
+                <div class="bg-red mb-3 d-flex align-items-center">
+                    <div class="w-100">
+                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}" class="img-fluid">
+                        <h3>Rare temples (303)</h3>
+                    </div>
+                </div>
+                <div class="bg-red sss mb-3 d-flex align-items-center">
+                    <div class="w-100">
+                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}" class="img-fluid">
+                        <h3>Save a temples (6)</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb-3">
+                <div class="bg-brown h-100">
+                    <div class="donate-img">
+                        <img src="{% static 'frontend/assets/images/rate.png' %}" class="img-fluid mb-4">
+                    </div>
+                    <div class="donate-icon mt-md-5">
+                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}" class="img-fluid mt-4">
+                        <h3>Donate (06)</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mb-3">
+                <div class="bg-red sss mb-3 d-flex align-items-center">
+                    <div class="w-100">
+                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}" class="img-fluid ">
+                        <h3>Amazing temples (63)</h3>
+                    </div>
+                </div>
+                <div class="bg-red mb-3 d-flex align-items-center">
+                    <div class="w-100">
+                        <img src="{% static 'frontend/assets/images/dadrshanmainlogo.png' %}" class="img-fluid">
+                        <h3>Form a trust (303)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-30 pb-0">
+    <div class="bg-brown">
+        <div class="container fluid">
+            <h6>INDIA'S FIRST PORTAL DEDICATED TO DIVINE TRAVEL & WOKSHIP</h6>
+        </div>
+    </div>
+</div>
+<div class="py-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="bg-brown-two ">
+                    <h3>Divine Store</h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="d-flex mb-4">
+                    <div class="divine">
+                        <img src="{% static 'frontend/assets/images/sarsvati.png' %}" class="img-fluid">
+                        <h3>SARASWATHI YAGAM RAJAHMUNDRY <br> JAN 11-20TH</h3>
+                    </div>
+                    <div class="divine me-0">
+                        <img src="{% static 'frontend/assets/images/om.png' %}" class="img-fluid">
+                        <h3>SARASWATHI YAGAM RAJAHMUNDRY <br> JAN 11-20TH</h3>
+                    </div>
+                </div>
+                <div class="divine me-0 d-flex m-auto justify-content-center">
+                    <a href="#" class="btn">BOOK MY HOMAN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-30 pt-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-6 col-12">
+                <div class="footer-img h-100">
+                    <img src="{% static 'frontend/assets/images/footer.png' %}" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-xl-6 col-12">
+                <div class="bg-brown">
+                    <div class="heading_label mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">SELECT YOUR
+                            ISSUE</label>
+                        <!-- <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"> -->
+                    </div>
+                    <div class="d-flex checkbox">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Problem
+                            </label>
+                        </div>
+                        <div class="form-check ms-md-4">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Pooja
+                            </label>
+                        </div>
+                        <div class="form-check ms-md-4">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Temple Search
+                            </label>
+                        </div>
+                        <div class="form-check ms-md-4">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                More
+                            </label>
                         </div>
                     </div>
+                    <dvi class="d-flex checkbox">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Tamples/Pligrim
+                            </label>
+                        </div>
+                        <div class="form-check ms-md-4">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked" style="white-space: nowrap;">
+                                Spiritual garus
+                            </label>
+                        </div>
+                    </dvi>
+                    <dvi class="d-flex checkbox">
 
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked" style="white-space: nowrap;">
+                                Ashram Search
+                            </label>
+                        </div>
+                        <div class="form-check ms-md-4">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked" style="white-space: nowrap;">
+                                Checked checkbox
+                            </label>
+                        </div>
+
+                    </dvi>
+                    <div class="mb-3 checkbox w-100">
+                        <label for="exampleFormControlTextarea1" class="form-label">Your Name</label>
+                        <input class="form-control" id="exampleFormControlTextarea1" type="text"></input>
+                    </div>
+                    <div class="mb-3 checkbox w-100">
+                        <label for="exampleFormControlTextarea1" class="form-label">Email ID</label>
+                        <input class="form-control" id="exampleFormControlTextarea1" type="email"></input>
+                    </div>
+                    <div class="mb-3 checkbox w-100">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a class="btn btn-one" href="#">TEMPLE FESTIVALS</a>
+                        <a class="btn btn-one" href="#">RITUALS [TELUGU]</a>
+                        <a class="btn btn-one" href="#">GENERAL FESTIVALS</a>
+
+                    </div>
                 </div>
-                <div class="bg-min-yellow">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-12 p-0">
-                                <div class=" bg-community">
-                                    <div class="comunity-txt mt-0">
-                                        <h3>Community Theatres</h3>
-                                        <p>A land of diverse traditions, vibrant festivals, and timeless artistry.</p>
-                                    </div>
-                                    <div class="community-threat">
-                                        <div>
-                                            <img src="{% static 'frontend/assets/images/footerpart.png' %}"
-                                                class="img-fluid">
-                                        </div>
-                                        <div class="threat-details">
-                                            <h3>Kerala</h3>
-                                            <p>A dance-drama with expressive gestures.</p>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="community-threat">
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="bg-min-yellow">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-4 col-lg-12 p-0">
+                <div class=" bg-community">
+                    <div class="comunity-txt mt-0">
+                        <h3>Community Theatres</h3>
+                        <p>A land of diverse traditions, vibrant festivals, and timeless artistry.</p>
+                    </div>
+                    <div class="community-threat">
+                        <div>
+                            <img src="{% static 'frontend/assets/images/footerpart.png' %}" class="img-fluid">
+                        </div>
+                        <div class="threat-details">
+                            <h3>Kerala</h3>
+                            <p>A dance-drama with expressive gestures.</p>
+                        </div>
+                    </div>
+                    <!-- <div class="community-threat">
                                         <div>
                                             <img src="./assets/images/keralatwo.png" class="img-fluid">
                                         </div>
@@ -598,117 +429,113 @@
                                             <p>A dance-drama with expressive gestures.</p>
                                         </div>
                                     </div> -->
-                                    <div class="community-threat">
-                                        <div>
-                                            <img src="{% static 'frontend/assets/images/keralathree.png' %}"
-                                                class="img-fluid">
-                                        </div>
-                                        <div class="threat-details">
-                                            <h3>Kerala</h3>
-                                            <p>A dance-drama with expressive gestures.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-8 col-lg-12">
-                                <div class="comunity-txt">
-                                    <h3 class="pt-3">Hindu Philosophy</h3>
-                                    <hr>
-                                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, commodi? Iure nobis adipisci officiis
+                    <div class="community-threat">
+                        <div>
+                            <img src="{% static 'frontend/assets/images/keralathree.png' %}" class="img-fluid">
+                        </div>
+                        <div class="threat-details">
+                            <h3>Kerala</h3>
+                            <p>A dance-drama with expressive gestures.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-12">
+                <div class="comunity-txt">
+                    <h3 class="pt-3">Hindu Philosophy</h3>
+                    <hr>
+                    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, commodi? Iure nobis adipisci officiis
                                                      voluptates ad. Cumque repudiandae ex sed.</p> -->
+                </div>
+                <div class="hindu">
+                    <div class="d-flex align-items-center">
+                        <div class="">
+                            <div class="d-flex mb-1 ">
+                                <div class="hindu-icon">
+                                    <img src="{% static 'frontend/assets/images/phicon.png' %}" class="img-fluid">
                                 </div>
-                                <div class="hindu">
-                                    <div class="d-flex align-items-center">
-                                        <div class="">
-                                            <div class="d-flex mb-1 ">
-                                                <div class="hindu-icon">
-                                                    <img src="{% static 'frontend/assets/images/phicon.png' %}"
-                                                        class="img-fluid">
-                                                </div>
-                                                <div>
-                                                    <h3>Bhakti Movement (Devlotional Path) </h3>
-                                                    <h4>Philosopher: Mirabai & Tulsidas</h4>
-                                                </div>
-                                            </div>
-                                            <h5>Focuses on personal devotion to a deity, leading to
-                                                spiritual liberation. Promotes love, humility, and
-                                                surrender.</h5>
-                                            <hr>
-                                        </div>
-                                        <div class="hindu-img">
-                                            <img src="{% static 'frontend/assets/images/poojadish.png' %}"
-                                                class="img-fluid">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="hindu">
-                                    <div class="">
-                                        <div class="d-flex mb-1 ">
-                                            <div class="hindu-icon">
-                                                <img src="{% static 'frontend/assets/images/phtwo.png' %}"
-                                                    class="img-fluid">
-                                            </div>
-                                            <div>
-                                                <h3>Dharma & Karma </h3>
-                                                <h4>Concepts found in Bhagavad Gita & Manusmriti</h4>
-                                            </div>
-                                        </div>
-                                        <h5>Dharma refers to duty and righteousness in life. Karma
-                                            is the law of cause and effect, shaping future
-                                            experiences based on past actions.</h5>
-                                        <hr>
-                                    </div>
-                                    <div class="hindu-img">
-                                        <img src="{% static 'frontend/assets/images/poojatwo.png' %}" class="img-fluid">
-                                    </div>
+                                <div>
+                                    <h3>Bhakti Movement (Devlotional Path) </h3>
+                                    <h4>Philosopher: Mirabai & Tulsidas</h4>
                                 </div>
                             </div>
+                            <h5>Focuses on personal devotion to a deity, leading to
+                                spiritual liberation. Promotes love, humility, and
+                                surrender.</h5>
+                            <hr>
+                        </div>
+                        <div class="hindu-img">
+                            <img src="{% static 'frontend/assets/images/poojadish.png' %}" class="img-fluid">
                         </div>
                     </div>
                 </div>
-                <div class="bg-onee">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 mb-3 mb-md-0 align-items-center">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label checkbox-padding" for="flexCheckDefault">
-                                        PUROHITS & PANDITS [ AREA WISE RATED ]
-                                    </label>
-                                </div>
+                <div class="hindu">
+                    <div class="">
+                        <div class="d-flex mb-1 ">
+                            <div class="hindu-icon">
+                                <img src="{% static 'frontend/assets/images/phtwo.png' %}" class="img-fluid">
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-check mb-0">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                    <label class="form-check-label checkbox-padding" for="flexCheckChecked">
-                                        CHECK MY ASTROLOGY [ FILL IN THE FORM-FREE]
-                                    </label>
-                                </div>
+                            <div>
+                                <h3>Dharma & Karma </h3>
+                                <h4>Concepts found in Bhagavad Gita & Manusmriti</h4>
                             </div>
                         </div>
+                        <h5>Dharma refers to duty and righteousness in life. Karma
+                            is the law of cause and effect, shaping future
+                            experiences based on past actions.</h5>
+                        <hr>
+                    </div>
+                    <div class="hindu-img">
+                        <img src="{% static 'frontend/assets/images/poojatwo.png' %}" class="img-fluid">
                     </div>
                 </div>
-                <div class="bg-two">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label checkbox-padding" for="flexCheckDefault">
-                                        MANTRAS & MEANINGS [ WISE AUDIO ]
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-check mb-0">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-                                    <label class="form-check-label checkbox-padding" for="flexCheckChecked">
-                                        YAJNAS & RITUALS [NEXT 3 MONTHS-LISTED]
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="checkbox-sp">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-onee">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0 align-items-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                        PUROHITS & PANDITS [ AREA WISE RATED ]
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label checkbox-padding" for="flexCheckChecked">
+                        CHECK MY ASTROLOGY [ FILL IN THE FORM-FREE]
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-two">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                        MANTRAS & MEANINGS [ WISE AUDIO ]
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-check mb-0">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label checkbox-padding" for="flexCheckChecked">
+                        YAJNAS & RITUALS [NEXT 3 MONTHS-LISTED]
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="checkbox-sp">
     
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -723,88 +550,46 @@
                                 </label>
                             </div>
                         </div> -->
-                    </div>
-                </div>
-                <div class="bg-three">
-                    <div class="container-fluid">
-                        <div class="checkbox-sp">
-                            <div class="form-check mb-0">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
-                                    DIVINE AUDIO & [ VIDEOS ]
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-four">
-                    <div class="container-fluid">
-                        <div class="checkbox-sp">
-                            <div class="form-check mb-0">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
-                                    BOOKS & LITERATURE [FROM GURUS]
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-five">
-                    <div class="container-fluid">
-                        <div class="checkbox-sp">
-                            <div class="form-check mb-0">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
-                                    GOD IDOLS
-                                </label>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Location section design end -->
-                <div class="">
-                    <footer class="bd-footer  mt-5 ">
-                        <div class="container-fluid ">
-                            <div class="row justify-content-between">
-                                <div class="col-6 col-lg-4 mb-3">
-                                    <div class="footer-link">
-                                        <h5>Amazing Facts...</h5>
-                                        <ul class="list-unstyled">
-                                            <li class="mb-2"><a href="">Why do web do it ?</a></li>
-                                            <li class="mb-2"><a href="">Types of marriages</a></li>
-                                            <li class="mb-2"><a href="">mpdern day marriages</a></li>
-                                            <!-- <li class="mb-2"><a href="">Parcel</a></li> -->
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-6 col-lg-4 mb-3">
-                                    <div class="footer-link">
-                                        <h5>TEMPLES OUTSIDE INDIA</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="footer-bottom">
-                                <h3>Copyrights @ 2025 <a href="#">Darsanam</a>. All Rights Reserved</h3>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
+    </div>
+</div>
+<div class="bg-three">
+    <div class="container-fluid">
+        <div class="checkbox-sp">
+            <div class="form-check mb-0">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                    DIVINE AUDIO & [ VIDEOS ]
+                </label>
             </div>
 
-            <script>AOS.init();</script>
-            <!-- owl Carousel JS -->
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-            <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/vendors/jquery.min.js"></script>
-            <script src="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/owl.carousel.js"></script>
-            <script src="./assets/js/style.js"></script>
         </div>
     </div>
-    <!-- </nav> -->
+</div>
+<div class="bg-four">
+    <div class="container-fluid">
+        <div class="checkbox-sp">
+            <div class="form-check mb-0">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                    BOOKS & LITERATURE [FROM GURUS]
+                </label>
+            </div>
 
-</body>
+        </div>
+    </div>
+</div>
+<div class="bg-five">
+    <div class="container-fluid">
+        <div class="checkbox-sp">
+            <div class="form-check mb-0">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label checkbox-padding" for="flexCheckDefault">
+                    GOD IDOLS
+                </label>
+            </div>
 
-</html>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
