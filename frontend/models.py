@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
-
+from adminpanel.models import Temple
 class KarmaPoints(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     points = models.PositiveIntegerField(default=0)
@@ -51,11 +51,18 @@ class DonorWall(models.Model):
         return f"{self.donor.username} donated {self.amount} to {self.temple.name}"
 
 
+# ✅ FIX: Add ForeignKey to User
 class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
+    date = models.DateTimeField(auto_now_add=True)
 
 class Donation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
+    date = models.DateTimeField(auto_now_add=True)
 
 class Wishlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     item_name = models.CharField(max_length=100)
+

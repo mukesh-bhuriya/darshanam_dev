@@ -1,92 +1,110 @@
 {% extends 'frontend/base.html' %}
 
 {% block content %}
-<div class="container">
-    <h1>User Dashboard</h1>
+<div class="devotte-dashboard-wrapper">
+    <!-- <header class="devotte-dashboard-header">
+        <h1 class="devotte-dashboard-title">User Dashboard</h1>
+    </header> -->
     
-    <div class="row">
+    <div class="devotte-dashboard-body">
         <!-- Sidebar Navigation -->
-        <div class="col-md-3">
-            <div class="dashboard-sidebar">
-                <div class="user-profile">
-                    <div class="profile-image">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="profile-info">
-                        <h4>{{ user.username }}</h4>
-                        <p>{{ user.email }}</p>
-                    </div>
+        <aside class="devotte-sidebar">
+            <div class="devotte-user-profile">
+                <div class="devotte-profile-image">
+                    <i class="fas fa-user-circle"></i>
                 </div>
-                
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'my_bookings' %}">My Bookings</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'wishlist' %}">Wishlist</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'donations' %}">Donations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'events' %}">Upcoming Events</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'notifications' %}">Notifications</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_settings' %}">Account Settings</a>
-                    </li>
+                <div class="devotte-profile-info">
+                    <h4>{{ user.username }}</h4>
+                    <p>{{ user.email }}</p>
+                </div>
+            </div>
+            
+            <nav class="devotte-nav">
+                <ul>
+                    <li><a class="devotte-nav-link active" href="#">Dashboard</a></li>
+                    <li><a class="devotte-nav-link" href="{% url 'my_bookings' %}">My Bookings</a></li>
+                    <li><a class="devotte-nav-link" href="{% url 'wishlist' %}">Wishlist</a></li>
+                    <li><a class="devotte-nav-link" href="{% url 'donations' %}">Donations</a></li>
+                    <li><a class="devotte-nav-link" href="{% url 'events' %}">Upcoming Events</a></li>
+                    <li><a class="devotte-nav-link" href="{% url 'notifications' %}">Notifications</a></li>
+                    <li><a class="devotte-nav-link" href="{% url 'account_settings' %}">Account Settings</a></li>
                 </ul>
-            </div>
-        </div>
-        
+            </nav>
+        </aside>
+
         <!-- Main Content -->
-        <div class="col-md-9">
-            <div class="dashboard-content">
-                {% block dashboard_content %}
-                <div class="dashboard-welcome">
-                    <h2>Welcome, {{ user.username }}!</h2>
-                    <p>Manage your spiritual journey from here.</p>
+        <main class="devotte-main-content">
+            {% block dashboard_content %}
+            <section class="devotte-welcome-section">
+                <h2>Welcome, {{ user.username }}!</h2>
+                <p>Manage your spiritual journey from here.</p>
+            </section>
+            
+            <section class="devotte-summary-cards">
+                <div class="devotte-summary-card">
+                    <h3>Upcoming Bookings</h3>
+                    <p class="devotte-count">{{ bookings|length }}</p>
                 </div>
-                
-                <div class="dashboard-summary">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="summary-card">
-                                <h3>Upcoming Bookings</h3>
-                                <p class="count">3</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="summary-card">
-                                <h3>Wishlist Items</h3>
-                                <p class="count">5</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="summary-card">
-                                <h3>Recent Donations</h3>
-                                <p class="count">2</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="devotte-summary-card">
+                    <h3>Wishlist Items</h3>
+                    <p class="devotte-count">{{ wishlist|length }}</p>
                 </div>
-                
-                <div class="dashboard-notifications">
-                    <h3>Recent Notifications</h3>
-                    <ul class="notification-list">
-                        <li>Your booking at Temple A has been confirmed</li>
-                        <li>New event: Festival Celebration on 15th August</li>
-                        <li>Your donation has been received</li>
-                    </ul>
+                <div class="devotte-summary-card">
+                    <h3>Recent Donations</h3>
+                    <p class="devotte-count">{{ donations|length }}</p>
                 </div>
-                {% endblock %}
-            </div>
-        </div>
+                <div class="devotte-summary-card">
+                    <h3>Karma Points</h3>
+                    <p class="devotte-count">{{ karma_points.points }}</p>
+                </div>
+            </section>
+
+            <section class="devotte-section">
+                <h3>Your Bookings</h3>
+                <ul>
+                    {% for booking in bookings|slice:":3" %}
+                        <li>{{ booking.temple.name }} on {{ booking.date }}</li>
+                    {% empty %}
+                        <li>No bookings yet.</li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'my_bookings' %}" class="devotte-link">View all bookings</a>
+            </section>
+
+            <section class="devotte-section">
+                <h3>Your Wishlist</h3>
+                <ul>
+                    {% for item in wishlist|slice:":3" %}
+                        <li>{{ item.temple.name }}</li>
+                    {% empty %}
+                        <li>Your wishlist is empty.</li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'wishlist' %}" class="devotte-link">View full wishlist</a>
+            </section>
+
+            <section class="devotte-section">
+                <h3>Your Recent Donations</h3>
+                <ul>
+                    {% for donation in donations|slice:":3" %}
+                        <li>{{ donation.amount }} to {{ donation.temple.name }} on {{ donation.date }}</li>
+                    {% empty %}
+                        <li>No donations yet.</li>
+                    {% endfor %}
+                </ul>
+                <a href="{% url 'donations' %}" class="devotte-link">View all donations</a>
+            </section>
+            
+            <section class="devotte-notifications-section">
+                <h3>Recent Notifications</h3>
+                <ul class="devotte-notification-list">
+                    <li>Your booking at Temple A has been confirmed</li>
+                    <li>New event: Festival Celebration on 15th August</li>
+                    <li>Your donation has been received</li>
+                </ul>
+            </section>
+            {% endblock %}
+        </main>
     </div>
 </div>
 {% endblock %}
