@@ -536,6 +536,93 @@ header {
   }
 }
 
+/* ========================================================================== */
+/* 5. Register Page Styles - Devotional theme for Darshanam */
+/* ========================================================================== */
+.register-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff8f0;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(107, 49, 0, 0.2);
+  text-align: center;
+}
+
+.register-title {
+  color: #6b3100;
+  font-size: 1.5rem;
+  font-family: 'Georgia', serif;
+  margin-bottom: 20px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register-form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.register-form label {
+  font-weight: 600;
+  color: #b35400;
+  margin-bottom: 5px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #ffd54f;
+  border-radius: 8px;
+  background-color: #fffaf3;
+  transition: border-color 0.3s;
+}
+
+.register-form input:focus {
+  border-color: #b35400;
+  outline: none;
+  box-shadow: 0 0 5px rgba(179, 84, 0, 0.3);
+}
+
+.btn-register {
+  background: #b35400;
+  color: #fff3c0;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-register:hover {
+  background: #ffd54f;
+  color: #6b3100;
+  box-shadow: 0 0 10px #ffd54f;
+}
+
+.login-link {
+  margin-top: 20px;
+  color: #6b3100;
+  font-size: 0.95rem;
+}
+
+.login-link a {
+  color: #b35400;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
 /* ==========================================================================
    6. Alert Messages (for Django messages)
    ========================================================================== */

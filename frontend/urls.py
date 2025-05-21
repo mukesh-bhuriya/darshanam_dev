@@ -7,4 +7,5 @@ urlpatterns = [
     path('dashboard/', login_required(views.dashboard_view), name='dashboard'),
     path('about/', views.about_view, name='about'),
     path('user-login/', views.login_view, name='user_login'),
+    path('user-register/', views.register_view, name='user_register'),
 ]

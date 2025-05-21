@@ -51,6 +51,20 @@ def login_view(request):
 
     return render(request, 'frontend/pages/login.html')
 
+def register_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')  # or wherever you want to send them
+        else:
+            messages.error(request, "Invalid username or password.")
+
+    return render(request, 'frontend/pages/register.html')
+
 @login_required
 @user_passes_test(lambda u: u.is_staff)
 def admin_panel(request):
