@@ -191,6 +191,13 @@ header {
   position: relative;
 }
 
+.header-view {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
 /* Logo */
 .logo a {
   color: #fff3c0; /* soft cream */

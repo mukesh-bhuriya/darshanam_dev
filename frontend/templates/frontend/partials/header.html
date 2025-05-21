@@ -1,13 +1,16 @@
 <header>
-    <nav>
-        <div class="logo">
+    <div class="navbar">
+        <div class="header-view">
+            <div class="logo">
             <a href="/">Darshanam</a>
         </div>
+
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/volunteer">Volunteer</a></li>
         </ul>
+        </div>
         <div class="language-selector">
             <form action="{% url 'set_language' %}" method="post">
                 {% csrf_token %}
@@ -25,5 +28,5 @@
                 </select>
             </form>
         </div>
-    </nav>
+    </div>
 </header>

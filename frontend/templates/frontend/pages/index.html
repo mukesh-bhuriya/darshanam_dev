@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>India Temples and Spirituality</title>
-    <link rel="icon" href="./assets/images/shreeganeshji.png" />
+    <link rel="icon" href="{% static 'frontend/assets/images/shreeganeshji.png' %}" />
     <!-- Favicon -->
     <link href="./assets/image/favicon.svg" rel="shortcut icon" type="image/x-icon" />
     <link href="./assets/image/favicon.svg" rel="apple-touch-icon" />
@@ -83,9 +83,31 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav w-100 fro-nav  mb-2 mb-lg-0 ">
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#">Telugu</a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <div class="language-selector">
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}">
+        <select name="language" class="form-select" onchange="this.form.submit()">
+            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+            <option value="hi" {% if LANGUAGE_CODE == 'hi' %}selected{% endif %}>हिंदी</option>
+            <option value="ta" {% if LANGUAGE_CODE == 'ta' %}selected{% endif %}>தமிழ்</option>
+            <option value="te" {% if LANGUAGE_CODE == 'te' %}selected{% endif %}>తెలుగు</option>
+            <option value="kn" {% if LANGUAGE_CODE == 'kn' %}selected{% endif %}>ಕನ್ನಡ</option>
+            <option value="ml" {% if LANGUAGE_CODE == 'ml' %}selected{% endif %}>മലയാളം</option>
+            <option value="gu" {% if LANGUAGE_CODE == 'gu' %}selected{% endif %}>ગુજરાતી</option>
+            <option value="as" {% if LANGUAGE_CODE == 'as' %}selected{% endif %}>অসমীয়া</option>
+            <option value="mr" {% if LANGUAGE_CODE == 'mr' %}selected{% endif %}>मराठी</option>
+        </select>
+    </form>
+</div>
+
                                 </li>
+
+
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">fasting days</a>
                                 </li>
