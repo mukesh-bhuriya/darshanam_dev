@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'adminlte3',
+    'adminlte3_theme',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,7 +61,9 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             # os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR),
+            # os.path.join(BASE_DIR),
+            os.path.join(BASE_DIR, 'adminpanel', 'templates'),
+            os.path.join(BASE_DIR, 'frontend', 'templates'),
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,6 +130,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/static'),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
@@ -133,5 +138,12 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/user-login/' # not the default admin login
-LOGIN_REDIRECT_URL = '/dashboard/'
+# For user side
+USER_LOGIN_URL = '/login/'
+USER_LOGIN_REDIRECT_URL = '/dashboard/'
+
+# For admin side
+ADMIN_LOGIN_URL = '/admin/login/'
+LOGOUT_URL = '/admin/logout/'
+ADMIN_LOGIN_REDIRECT_URL = '/admin/dashboard/'
+
