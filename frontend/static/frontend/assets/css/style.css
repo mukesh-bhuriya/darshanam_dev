@@ -684,8 +684,8 @@ header {
   background: linear-gradient(135deg, #f9f3ec, #f0e6d2);
   color: #4b3a2f;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 20px 40px;
-  width: 100vw;
+  /* padding: 20px 40px; */
+  /* width: 100vw; */
   box-sizing: border-box;
 }
 
@@ -707,7 +707,7 @@ header {
 .devotte-dashboard-body {
   display: flex;
   flex-grow: 1;
-  gap: 30px;
+  gap: 20px;
 }
 
 /* Sidebar */
@@ -792,7 +792,7 @@ header {
   padding: 35px 40px;
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 30px;
   min-height: 70vh;
 }
 
