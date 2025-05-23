@@ -144,6 +144,5 @@ USER_LOGIN_REDIRECT_URL = '/dashboard/'
 
 # For admin side
 ADMIN_LOGIN_URL = '/admin/login/'
-LOGOUT_URL = '/admin/logout/'
 ADMIN_LOGIN_REDIRECT_URL = '/admin/dashboard/'
 

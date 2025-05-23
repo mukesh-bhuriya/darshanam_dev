@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.db.models import Sum, Count
@@ -18,6 +18,10 @@ def about_view(request):
     return render(request, 'frontend/pages/about.html')
 
 def home_view(request):
+    # ✅ Redirect if user is already logged in
+    if request.user.is_authenticated:
+        return redirect('user_dashboard')  # or '/dashboard/'
+    
     # Get featured temples
     featured_temples = Temple.objects.filter(is_featured=True)[:3]
     
@@ -52,6 +56,11 @@ def login_view(request):
             messages.error(request, "Invalid username or password.")
 
     return render(request, 'frontend/pages/login.html')
+
+def logout_view(request):
+    logout(request)
+    request.session.flush()  # Clears the session data
+    return redirect('home')
 
 def register_view(request):
     if request.method == 'POST':
