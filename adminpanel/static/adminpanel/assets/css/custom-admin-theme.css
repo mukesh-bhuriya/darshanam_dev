@@ -1,0 +1,274 @@
+/* D:\Gitcode\Darshanam_AI_Python (1)\Darshanam_AI_Python\adminpanel\static\adminpanel\css\custom-admin-theme.css */
+
+/* ========================================================================== */
+/* Custom AdminLTE Theme for Django Admin - "Lopez" Dashboard Inspired      */
+/* ========================================================================== */
+
+/* --- Global Font & Base Colors --- */
+body.login-page, /* For Django admin login page */
+body.register-page, /* For Django admin register page (if used) */
+body.sidebar-mini, body { /* General AdminLTE body */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    color: #5D4037 !important; /* Dark warm brown for general text */
+}
+
+/* --- Content Wrapper (Main content area) --- */
+.content-wrapper {
+    background-color: #FFFBF0 !important; /* Very light warm beige */
+}
+/* For Django admin index, the main content might be inside #content or .col-md-12 */
+#content, .main-content .col-md-12 { /* Common Django admin content wrapper */
+     background-color: #FFFBF0 !important; /* Ensure this area also gets the background */
+}
+
+
+/* --- Main Header / Navbar (Top bar) --- */
+.main-header.navbar-white.navbar-light, /* Common AdminLTE class for light navbar */
+.main-header.navbar { /* General AdminLTE navbar */
+    background-color: #F5F1E6 !important; /* Slightly darker beige */
+    border-bottom: 1px solid #E0D8C8 !important;
+}
+.main-header.navbar-white.navbar-light .nav-link,
+.main-header.navbar .nav-link {
+    color: #5D4037 !important; /* Dark brown text */
+}
+.main-header.navbar-white.navbar-light .nav-link:hover,
+.main-header.navbar .nav-link:hover {
+    color: #4E342E !important; /* Slightly darker on hover */
+}
+/* Top right user name in navbar if present */
+.navbar .user-menu .nav-link .d-none { /* Targets user name text */
+    color: #5D4037 !important;
+}
+
+/* --- Sidebar --- */
+.main-sidebar.sidebar-dark-primary, /* Common AdminLTE class for dark sidebar */
+.main-sidebar { /* General AdminLTE sidebar */
+    background-color: #F5F1E6 !important; /* Light warm beige */
+    box-shadow: 2px 0 8px rgba(0,0,0,0.07) !important;
+}
+/* Adjust if you use sidebar-light-* */
+.main-sidebar.sidebar-light-primary { /* If you use a light sidebar theme */
+    background-color: #F5F1E6 !important;
+}
+.main-sidebar.sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #DCC985 !important; color: #FFFFFF !important;
+} /* etc. for light sidebar if needed */
+
+
+/* Sidebar User Panel ("darshanam") */
+.user-panel {
+    border-bottom: 1px solid #E0D8C8 !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+}
+.user-panel .info .d-block, .user-panel .info a {
+    color: #5D4037 !important; /* User name color */
+    font-weight: 600 !important;
+}
+.user-panel .image img {
+    border: 2px solid #DCC985; /* Muted gold border */
+    box-shadow: none !important;
+}
+
+/* Sidebar Menu Items ("Home", "Adminpanel") */
+.nav-sidebar .nav-item > .nav-link {
+    color: #5D4037 !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    margin: 3px 8px !important;
+    padding: 8px 15px !important;
+}
+.nav-sidebar .nav-item > .nav-link.active {
+    background-color: #DCC985 !important; /* Muted gold */
+    color: #FFFFFF !important; /* White text */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15) !important;
+}
+.nav-sidebar .nav-item > .nav-link:hover:not(.active) {
+    background-color: #E8DAB8 !important; /* Lighter gold/beige */
+    color: #5D4037 !important;
+}
+.nav-sidebar .nav-item > .nav-link .nav-icon {
+    color: #8c6d1f !important; /* Gold for icons */
+    margin-right: 0.7rem !important;
+}
+.nav-sidebar .nav-item > .nav-link.active .nav-icon {
+    color: #FFFFFF !important; /* White icon on active */
+}
+
+/* --- Content Header ("Welcome, Admin") --- */
+.content-header h1, #content h1 { /* Target AdminLTE and Django Admin h1 */
+    color: #6A4C4C !important; /* Dark warm brown */
+    font-weight: 700 !important;
+    font-size: 1.9rem !important;
+    margin-bottom: 0.5rem !important;
+}
+.content-header .breadcrumb, #content .breadcrumb { /* Breadcrumbs "Home / Adminpanel" */
+    background-color: transparent !important;
+    padding-left: 0 !important;
+}
+.content-header .breadcrumb-item a, #content .breadcrumb-item a {
+    color: #A1887F !important; /* Muted link color */
+}
+.content-header .breadcrumb-item.active, #content .breadcrumb-item.active {
+    color: #5D4037 !important; /* Darker for active breadcrumb */
+}
+
+
+/* --- Django Admin App Index Sections / Model Cards --- */
+/* This targets the "Adminpanel" collapsible section and individual model cards */
+/* These are often .module in Django admin, themed as .card by AdminLTE */
+
+/* The main container for an app's models on the index page */
+#content .module > .card-header > .card-title, /* If AdminLTE themes module as card */
+#content .module > h2, /* Standard Django admin app title */
+#content .app-adminpanel .module caption, /* More specific for app "adminpanel" */
+#content .app-adminpanel h2 { /* For app title like "Adminpanel" */
+    color: #6A4C4C !important;
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #E0D8C8;
+}
+
+/* Styling for individual model cards (Categories, Events, etc.) */
+/* Assuming they are rendered as AdminLTE .card or are inside a Django .module */
+#content .module table, /* Django admin tables for models */
+#content .card.module-card { /* A hypothetical class if your theme creates specific cards */
+    /* If these are already .card elements by AdminLTE, the general .card style below will apply */
+    /* If not, you might need to style them directly: */
+    background-color: #E8DAB8 !important; /* Muted gold/beige (like lopez cards) */
+    border-radius: 12px !important;
+    color: #5D4037 !important;
+    box-shadow: 0 4px 12px rgba(191, 164, 111, 0.2) !important;
+    margin-bottom: 20px !important;
+    border: none !important; /* Override default table borders */
+    width: 100%; /* Ensure it takes full width if it's a table */
+}
+
+/* If your "Categories", "Events" are inside standard AdminLTE cards: */
+.card.main-module-card { /* A custom class you could add to these cards via template override */
+    background-color: #E8DAB8 !important;
+    border-radius: 12px !important;
+    color: #5D4037 !important;
+    box-shadow: 0 4px 12px rgba(191, 164, 111, 0.2) !important;
+}
+.card.main-module-card .card-header {
+    background-color: transparent !important;
+    border-bottom: 1px solid rgba(93, 64, 55, 0.2) !important; /* Subtle darker border */
+    padding: 0.75rem 1.25rem;
+}
+.card.main-module-card .card-header .card-title {
+    color: #5D4037 !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+}
+.card.main-module-card .card-body {
+    padding: 1rem 1.25rem;
+}
+
+/* Styling for "Add" and "Change" links inside model cards */
+/* These are typically <a> tags within <th> or <td> */
+#content .module th a,
+#content .module td a,
+.card.main-module-card .card-body a {
+    display: inline-block;
+    padding: 0.4rem 1rem !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    margin: 3px 0;
+    text-align: center;
+    min-width: 80px; /* Give them some width */
+}
+
+/* Specific "Add" button style */
+#content .module a[href*="/add/"], /* Django admin "Add" link */
+.card.main-module-card a[href*="/add/"] {
+    background-color: #FFFBF0 !important; /* Light beige, like lopez secondary buttons */
+    border: 1px solid #DCC985 !important;
+    color: #8c6d1f !important; /* Gold text */
+}
+#content .module a[href*="/add/"]:hover,
+.card.main-module-card a[href*="/add/"]:hover {
+    background-color: #F5F1E6 !important;
+    border-color: #c59c40 !important;
+    color: #6A4C4C !important;
+}
+
+/* Specific "Change" button style (yellow in your screenshot, let's make it lopez gold) */
+#content .module a:not([href*="/add/"]):not([href*="/delete/"]), /* Django admin "Change" link */
+.card.main-module-card a:not([href*="/add/"]):not([href*="/delete/"]) {
+    background-color: #DCC985 !important; /* Muted gold */
+    border: 1px solid #DCC985 !important;
+    color: #FFFFFF !important; /* White text */
+}
+#content .module a:not([href*="/add/"]):not([href*="/delete/"]):hover,
+.card.main-module-card a:not([href*="/add/"]):not([href*="/delete/"]):hover {
+    background-color: #c59c40 !important; /* Darker gold */
+    border-color: #c59c40 !important;
+    color: #FFFFFF !important;
+}
+/* Hide the blue circle if it's an icon you don't want, or style it if you do */
+/* You'll need to inspect to find its class. Example: */
+/* #content .module .some-icon-class { display: none !important; } */
+
+
+/* --- General Cards (If you use standard AdminLTE cards elsewhere) --- */
+.card:not(.main-module-card) { /* Apply to other cards, not the main app index ones if styled above */
+    background-color: #FFFDF7 !important;
+    border: 1px solid #EAE0D1 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06) !important;
+    margin-bottom: 20px !important;
+}
+.card:not(.main-module-card) .card-header {
+    background-color: transparent !important;
+    border-bottom: 1px solid #EBE0CF !important;
+}
+.card:not(.main-module-card) .card-header .card-title {
+    color: #6A4C4C !important;
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+}
+/* ... etc. for general cards ... */
+
+
+/* --- Django Admin Login Page --- */
+.login-page, .register-page {
+    background-color: #FFFBF0 !important;
+}
+.login-box, .register-box {
+    background: #F5F1E6 !important;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+.login-logo a, .register-logo a {
+    color: #6A4C4C !important;
+    font-weight: 700;
+}
+.login-card-body, .register-card-body {
+    background: transparent !important;
+    color: #5D4037 !important;
+    border-radius: 12px;
+}
+.login-box-msg, .register-box-msg {
+    color: #5D4037 !important;
+}
+.login-page .btn-primary, .register-page .btn-primary {
+    background-color: #DCC985 !important;
+    border-color: #DCC985 !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+}
+.login-page .btn-primary:hover, .register-page .btn-primary:hover {
+    background-color: #c59c40 !important;
+    border-color: #c59c40 !important;
+}
+
+/* --- Recent Actions (if displayed and needs styling) --- */
+#recent-actions-module { /* Common ID for recent actions in Django admin */
+    /* Apply card styling similar to .card or .main-module-card if desired */
+}

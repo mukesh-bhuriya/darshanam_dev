@@ -14,9 +14,14 @@
 
     {% block stylesheets %}
         {% include 'adminlte/lib/_styles.html' %}
+        <link rel="stylesheet" href="{% static 'adminpanel/assets/css/custom-admin-theme.css' %}">
     {% endblock %}
 
-    {% block extra_head %}{% endblock %}
+    {% block extra_head %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    {% endblock %}
 </head>
 <body class="hold-transition sidebar-mini {% block body_class %}{% block bodyclass %}{% endblock %}{% endblock %}">
 
