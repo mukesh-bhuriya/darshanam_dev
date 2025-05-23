@@ -20,7 +20,12 @@ def about_view(request):
 def home_view(request):
     # ✅ Redirect if user is already logged in
     if request.user.is_authenticated:
-        return redirect('user_dashboard')  # or '/dashboard/'
+        if request.user.is_superuser:
+            return redirect('/admin/')  # or 'admin:index' if using named URL
+        elif request.user.is_staff:
+            return redirect('staff_dashboard')  # define this view/URL
+        else:
+            return redirect('user_dashboard')
     
     # Get featured temples
     featured_temples = Temple.objects.filter(is_featured=True)[:3]
